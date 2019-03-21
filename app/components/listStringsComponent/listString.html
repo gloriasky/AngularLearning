@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <div ng-class="$ctrl.str.color"></div>
+    <div class="dropdown-content">
+        <p>{{$ctrl.str.color | getStatus }}</p>
+    </div>
+</div>
+<h2 translate="STR">{{$ctrl.str.str | getNumbers }}</h2>
+<button ng-click="$ctrl.resetStr($index)" translate="RESETBTN"></button>
+<div class="delete" ng-click="$ctrl.deleteStr($index)"></div>
+<img src="../../styles/res/delete.jpg" class="delete" ng-click="$ctrl.deleteStr($index)">

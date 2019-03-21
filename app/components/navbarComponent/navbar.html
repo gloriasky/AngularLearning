@@ -1,0 +1,21 @@
+<!--<ul>-->
+<!--<li class="dropdown">-->
+<!--<a class="dropbtn" translate="LANG"></a>-->
+<!--<div class="dropdown-content" >-->
+<!--<a  href="#english" ng-click="$ctrl.changeLanguage('en')" translate="EN"></a>-->
+<!--<a  href="#russian" ng-click="$ctrl.changeLanguage('ru')" translate="RU"></a>-->
+<!--<a  href="#deutsch" ng-click="$ctrl.changeLanguage('de')" translate="DE"></a>-->
+<!--</div>-->
+<!--</li>-->
+<!--</ul>-->
+<ul>
+    <li class="dropdown">
+        <a class="dropbtn" translate="LANG"></a>
+        <div class="dropdown-content">
+            <div  ng-repeat="lang in $ctrl.availableLangs track by $index">
+                <!--<a href="#{{lang.abr}}" ng-click="$ctrl.changeLanguage(lang.abr)">{{lang.name}}</a>-->
+                <a ng-model="lang" ng-options="lang.name for lang in $ctrl.availableLangs"></a>
+            </div>
+        </div>
+    </li>
+</ul>

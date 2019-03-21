@@ -1,0 +1,23 @@
+{
+  "name": "minetask",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.7.7",
+    "angular-translate": "2.18.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "http-server ./app -a localhost -p 8010 -c-1"
+  },
+  "author": "kseniyavaladzko",
+  "license": "ISC",
+  "description": "My task",
+  "devDependencies": {
+    "css-loader": "2.1.1",
+    "webpack": "4.29.6",
+    "style-loader": "0.23.1",
+    "webpack-cli": "3.2.3",
+    "lodash": "4.17.11",
+    "url-loader": "1.1.2"
+  }
+}
