@@ -16,7 +16,6 @@ angular.module('myApp').filter('getNumbers', ['$translate', ($translate) => {
         let string = _.replace(text, /[^\d]/gi, '');
         if(string === ''){
             return $translate.instant("string");
-            ;
         }
         return string;
     }

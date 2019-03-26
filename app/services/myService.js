@@ -60,7 +60,7 @@ angular
     };
     this.changeLanguage = () => {
         _.forEach(this.strings, (element) => {
-            element.strlabel = getNumbersFilter(element);
+            element.strlabel = getNumbersFilter(element.str);
         });
     }
 }]);
