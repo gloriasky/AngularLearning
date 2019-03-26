@@ -7,18 +7,16 @@ angular.module('myApp').component('main', {
          * Функция для удаления элемента массива по индексу
          * @param index
          */
-        $ctrl.delete = (index) => {
-            myService.deleteString(index);
-        };
+        $ctrl.delete = index => myService.deleteString(index);
         /**
          * Функция для сброса счетчика по индексу
          * @param index
          */
-        $ctrl.reset = (index) => {
+        $ctrl.reset = index => {
             myService.reset(index);
             $ctrl.change();
         };
-        $ctrl.add = (myString) => {
+        $ctrl.add = myString => {
             myService.addString(myString);
             $ctrl.change();
         };
