@@ -3,9 +3,9 @@
         <td>
             <div ng-class="str.color" title="{{ str.color | translate }}"></div>
         </td>
-        <td class="string">{{ str.str | getNumbers | translate }}</td>
+        <td class="string">{{ str.strlabel }}</td>
         <td>
-            <div class="reset" ng-click="$ctrl.onReset($index)" title="{{'reset' | translate}}"></div>
+            <div class="reset" ng-click="$ctrl.reset({index: $index})" title="{{'reset' | translate}}"></div>
         </td>
         <td>
             <div class="delete" ng-click="$ctrl.onDelete($index)" title="{{'remove' | translate}}"></div>

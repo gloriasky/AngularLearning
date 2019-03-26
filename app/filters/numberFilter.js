@@ -12,11 +12,13 @@ angular.module('myApp').filter('getNumbers', [() => {
      * @param {string} text - Исходная строка
      * @return {string} string - Конечная строка
      */
-    return function(text){
-        let string = _.replace(text, /[^\d]/gi, '');
+    return function (str) {
+        let string = _.replace(str.str, /[^\d]/gi, '');
         if(string === ''){
-            return "string";
+            str.strlabel = 'string';
+            return 'string';
         }
+        str.strlabel = string;
         return string;
     }
 }]);

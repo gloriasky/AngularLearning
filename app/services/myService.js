@@ -6,7 +6,7 @@
  *
  */
 angular
-    .module('myApp').service('myService', function () {
+    .module('myApp').service('myService', ['$translate', 'getNumbersFilter', function ($translate, getNumbersFilter) {
     this.strings = [];
     this.shouldStop = false;
     /**
@@ -14,7 +14,7 @@ angular
      * @param str
      */
     this.addString = (str) => {
-        this.strings.push({str: str, color: "green",time: new Date()});
+        this.strings.push({str: str, color: "green", time: new Date(), strlabel: getNumbersFilter(str)});
         this.shouldStop = false;
     };
     /**
@@ -57,5 +57,10 @@ angular
                 }
             });
         }
+    };
+    this.changeLanguage = () => {
+        _.forEach(this.strings, (element) => {
+            element.strlabel = getNumbersFilter(element);
+        });
     }
-});
+}]);

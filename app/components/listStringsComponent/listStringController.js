@@ -7,9 +7,9 @@ angular.module('myApp').component('list', {
     controller: [function () {
         let $ctrl = this;
 
-        $ctrl.onDelete = indexOfTheString => $ctrl.delete({index: indexOfTheString});
+        $ctrl.onDelete = index => $ctrl.delete({index});
 
-        $ctrl.onReset = indexOfTheString => $ctrl.reset({index: indexOfTheString});
+        $ctrl.onReset = index => $ctrl.reset({index});
 
     }],
     templateUrl: './components/listStringsComponent/listString.html'
