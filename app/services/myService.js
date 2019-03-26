@@ -14,7 +14,6 @@ angular
      * @param str
      */
     this.addString = (str) => {
-        console.log("service:  Adding string");
         this.strings.push({str: str, color: "green",time: new Date()});
         this.shouldStop = false;
     };

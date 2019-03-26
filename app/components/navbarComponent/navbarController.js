@@ -1,22 +1,9 @@
 angular.module('myApp').component('navbar', {
     templateUrl: 'components/navbarComponent/navbar.html',
-    controller: ['$translate','$http',function ($translate,$http) {
-        this.availableLangs = [];
-        this.changeLanguage = (lang) => {
-            $translate.use(lang.abr);
-        };
-        let request = {
-            method: 'get',
-            url: '/components/navbarComponent/langs.json',
-            dataType: 'json',
-            contentType: "application/json"
-        };
-        $http(request)
-            .then(function (jsonData) {
-                this.availableLangs = jsonData.data;
-                console.log(this.availableLangs);
-            }, function(response) {
-
-            });
+    controller: ['$translate', function ($translate) {
+        this.languages = require('./langs');
+        this.changeLanguage = (languageObject) => {
+            $translate.use(languageObject.name);
+        }
     }]
 });

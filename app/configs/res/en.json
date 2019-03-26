@@ -1,0 +1,12 @@
+{
+  "add": "Add",
+  "delete": "Delete",
+  "string": "the string doesn't contain numbers",
+  "lang": "Languages",
+  "green": "Fresh",
+  "yellow": "Lain",
+  "red": "Rotten",
+  "remove": "Delete",
+  "reset": "Reset",
+  "notification": "You must enter at least 3 characters"
+}

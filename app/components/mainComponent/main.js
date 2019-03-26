@@ -18,7 +18,7 @@ angular.module('myApp').component('main', {
             myService.reset(index);
             $ctrl.change();
         };
-        $ctrl.add = function (myString) {
+        $ctrl.add = (myString) => {
             myService.addString(myString);
             $ctrl.change();
         };
@@ -30,11 +30,9 @@ angular.module('myApp').component('main', {
             if (!angular.isDefined($ctrl.colorChange)) {
                 $ctrl.colorChange = $interval(() => {
                     if (!myService.shouldStop) {
-                        console.log("Interval start");
                         myService.colorChange();
                     } else {
                         $interval.cancel($ctrl.colorChange);
-                        console.log("Interval stop");
                         $ctrl.colorChange = undefined;
                     }
 

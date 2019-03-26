@@ -7,13 +7,14 @@ angular.module('myApp').component('list', {
     controller: [function () {
         let $ctrl = this;
 
-        $ctrl.onDelete = function (indexOfTheString) {
+        $ctrl.onDelete = (indexOfTheString) => {
             $ctrl.delete({index: indexOfTheString});
         };
 
-        $ctrl.onReset = function (indexOfTheString) {
+        $ctrl.onReset = (indexOfTheString) => {
             $ctrl.reset({index: indexOfTheString});
         };
+
 
     }],
     templateUrl: './components/listStringsComponent/listString.html'

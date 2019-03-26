@@ -1,7 +1,7 @@
 let angular = require('angular');
 let _ = require('lodash');
 require('angular-translate');
-require('./components/navbarComponent/langs');
+require("angular-translate-loader-static-files");
 import './styles/style.css';
 
 /**
@@ -12,7 +12,6 @@ angular
 require('./services/myService');
 require('./configs/configs');
 require('./filters/numberFilter');
-require('./filters/statusFilter');
 require('./components/navbarComponent/navbarController');
 require('./components/mainComponent/main');
 require('./components/addStringComponent/addStringController');

@@ -1,4 +1,5 @@
 <div class="center">
-    Your String: <input maxlength="15" minlength="3" ng-model="$ctrl.userString"/>
-    <button ng-click="$ctrl.addString()">Add</button>
+    <input maxlength="15" minlength="3" ng-model="$ctrl.userString"/>
+    <button ng-click="$ctrl.onAdd()" ng-if="$ctrl.checkIfValid()" translate="add"></button>
+    <div ng-show="!$ctrl.checkIfValid()"><p>{{'notification' | translate }}</p></div>
 </div>

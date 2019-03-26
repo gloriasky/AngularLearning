@@ -51,8 +51,10 @@ li.dropdown {
     display: block;
 }
 .center{
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     text-align: center;
+    position: center;
 }
 list{
     display: block;
@@ -64,28 +66,54 @@ list{
     overflow-x: hidden;
 }
 .red{
+    position: relative;
+    left: 50px;
     height: 15px;
     width: 15px;
+    display: inline-block;
     background-color:red;
 }
 .yellow{
+    position: relative;
+    left: 50px;
     height: 15px;
     width: 15px;
+    display: inline-block;
     background-color:yellow;
 }
 .green{
+    position: relative;
+    left: 50px;
     height: 15px;
     width: 15px;
+    display: inline-block;
     background-color:green;
 }
 .delete{
     height: 20px;
     width: 20px;
-    background-image: url("./res/delete.png");
+    display: inline-block;
+    position: relative;
+    left: 250px;
+    background-image: url("res/delete.png");
 }
 
+.string {
+    position: relative;
+    left: 100px;
+    text-align: center;
+}
 .reset {
     height: 20px;
     width: 20px;
-    background-image: url("./res/reset.png");
+    display: inline-block;
+    position: relative;
+    left: 200px;
+    background-image: url("res/reset.png");
+}
+
+input {
+    height: auto;
+    width: 400px;
+    position: center;
 }

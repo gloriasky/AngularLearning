@@ -1,19 +1,14 @@
-<table>
+<table class="center">
     <tr ng-repeat="str in $ctrl.strings track by $index">
         <td>
-            <div class="dropdown">
-                <div ng-class="str.color"></div>
-                <div class="dropdown-content">
-                    <p>{{str.color | getStatus }}</p>
-                </div>
-            </div>
+            <div ng-class="str.color" title="{{ str.color | translate }}"></div>
         </td>
-        <td><h2>{{str.str | getNumbers }}</h2></td>
+        <td class="string">{{ str.str | getNumbers | translate}}</td>
         <td>
-            <div class="reset" ng-click="$ctrl.onReset($index)"></div>
+            <div class="reset" ng-click="$ctrl.onReset($index)" title="{{'reset' | translate}}"></div>
         </td>
         <td>
-            <div class="delete" ng-click="$ctrl.onDelete($index)"></div>
+            <div class="delete" ng-click="$ctrl.onDelete($index)" title="{{'remove' | translate}}"></div>
         </td>
     </tr>
 </table>

@@ -1,9 +1,9 @@
 <ul>
     <li class="dropdown">
-        <a class="dropbtn" translate="LANG"></a>
+        <a class="dropbtn" translate="lang"></a>
         <div class="dropdown-content">
-            <div  ng-repeat="lang in $ctrl.availableLangs track by $index">
-                <a ng-click="$ctrl.changeLanguage(lang)">{{lang.name}}</a>
+            <div ng-repeat="language in $ctrl.languages track by $index">
+                <a ng-click="$ctrl.changeLanguage(language)">{{language.title}}</a>
             </div>
         </div>
     </li>
