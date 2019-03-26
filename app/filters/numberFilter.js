@@ -7,18 +7,17 @@
  * @param {service} $translate - для локализации
  *
  */
-angular.module('myApp').filter('getNumbers', [() => {
+angular.module('myApp').filter('getNumbers', ['$translate', ($translate) => {
     /**
      * @param {string} text - Исходная строка
      * @return {string} string - Конечная строка
      */
-    return function (str) {
-        let string = _.replace(str.str, /[^\d]/gi, '');
+    return function (text) {
+        let string = _.replace(text, /[^\d]/gi, '');
         if(string === ''){
-            str.strlabel = 'string';
-            return 'string';
+            return $translate.instant("string");
+            ;
         }
-        str.strlabel = string;
         return string;
     }
 }]);

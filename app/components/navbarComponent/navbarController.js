@@ -4,7 +4,7 @@ angular.module('myApp').component('navbar', {
         this.languages = require('./langs');
         this.changeLanguage = (languageObject) => {
             $translate.use(languageObject.name).then(function () {
-                    myService.changeLanguage(this.languages, languageObject.name);
+                myService.changeLanguage();
                 }
             );
 
