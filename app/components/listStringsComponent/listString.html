@@ -1,10 +1,19 @@
-<div class="dropdown">
-    <div ng-class="$ctrl.str.color"></div>
-    <div class="dropdown-content">
-        <p>{{$ctrl.str.color | getStatus }}</p>
-    </div>
-</div>
-<h2 translate="STR">{{$ctrl.str.str | getNumbers }}</h2>
-<button ng-click="$ctrl.resetStr($index)" translate="RESETBTN"></button>
-<div class="delete" ng-click="$ctrl.deleteStr($index)"></div>
-<img src="../../styles/res/delete.jpg" class="delete" ng-click="$ctrl.deleteStr($index)">
+<table>
+    <tr ng-repeat="str in $ctrl.strings track by $index">
+        <td>
+            <div class="dropdown">
+                <div ng-class="str.color"></div>
+                <div class="dropdown-content">
+                    <p>{{str.color | getStatus }}</p>
+                </div>
+            </div>
+        </td>
+        <td><h2>{{str.str | getNumbers }}</h2></td>
+        <td>
+            <div class="reset" ng-click="$ctrl.onReset($index)"></div>
+        </td>
+        <td>
+            <div class="delete" ng-click="$ctrl.onDelete($index)"></div>
+        </td>
+    </tr>
+</table>

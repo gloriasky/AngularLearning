@@ -6,18 +6,18 @@
  * @param {service} $translate - для локализации
  *
  */
-angular.module('myApp').filter('getStatus',['$translate', function($translate){
+angular.module('myApp').filter('getStatus', function () {
     /**
      * @param {string} - Исходный цвет
      * @return {string} - Соответсвующий статус
      */
     return function(text){
         if(text === "green"){
-            return $translate.instant('GREEN');
+            return '"GREEN" | translate';
         }
         else if(text === "yellow"){
-            return $translate.instant('YELLOW');
+            return '"YELLOW" | translate';
         }
-        return $translate.instant('RED');
+        return '"RED" | translate';
     }
-}]);
+});

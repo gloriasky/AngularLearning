@@ -1,4 +1,4 @@
 <div class="center">
-    <adder add="$ctrl.addStr({str: $ctrl.text})" str="$ctrl.str" ></adder>
-    <list ng-repeat="str in $ctrl.strings track by $index" index="$index" str="str"></list>
+    <adder add="$ctrl.add(myString)"></adder>
+    <list delete="$ctrl.delete(index)" reset="$ctrl.reset(index)" strings="$ctrl.strings"></list>
 </div>

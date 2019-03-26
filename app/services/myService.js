@@ -34,6 +34,7 @@ angular
     this.reset = (index) => {
         this.strings[index].time = new Date();
         this.strings[index].color="green";
+        this.shouldStop = false;
     };
     /**
      * Изменение цвета в соответсвии со временем, а также отслеживание выполнения условия для остановки интервала
@@ -43,7 +44,7 @@ angular
     this.colorChange = () => {
         let dateNow = new Date();
         this.shouldStop = _.every(this.strings,(str)=>{
-           return str.color === "red";
+            return str.color === "red";
         });
         if(!this.shouldStop) {
             _.each(this.strings, (element) => {

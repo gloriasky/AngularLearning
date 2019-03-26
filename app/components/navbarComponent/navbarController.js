@@ -3,7 +3,7 @@ angular.module('myApp').component('navbar', {
     controller: ['$translate','$http',function ($translate,$http) {
         this.availableLangs = [];
         this.changeLanguage = (lang) => {
-            $translate.use(lang);
+            $translate.use(lang.abr);
         };
         let request = {
             method: 'get',

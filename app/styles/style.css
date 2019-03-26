@@ -81,5 +81,11 @@ list{
 .delete{
     height: 20px;
     width: 20px;
-    background-image: url("./res/delete.jpg");
+    background-image: url("./res/delete.png");
+}
+
+.reset {
+    height: 20px;
+    width: 20px;
+    background-image: url("./res/reset.png");
 }

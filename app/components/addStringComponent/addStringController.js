@@ -1,36 +1,16 @@
-/**
- * @name adder
- * @module myApp
- *
- * Регистрация компонента, отвечающего за ввод строки
- *
- */
-angular
-    .module('myApp').component('adder', {
-    templateUrl: 'components/addStringComponent/addString.html',
+angular.module('myApp').component('adder', {
     bindings:{
-      add:'&',
-        str:'<'
+        add: "&"
     },
-    /**
-     *  Регистрация контроллера
-     *  @param {object} $myService - сервис для работы с данными
-     *  @param {service} $interval - для работы со временем
-     *
-     */
     controller: [function () {
-        let ctrl = this;
-        /**
-         * Функция для добавления строки в массив
-         * @param text
-         */
-        ctrl.addStr = () => {
-            console.log("add controller: adding string");
-            console.log(ctrl.text);
-            ctrl.add(ctrl.text);
+        let $ctrl = this;
+        $ctrl.addString = function () {
+            if (angular.isDefined($ctrl.userString) && $ctrl.userString !== "" && $ctrl.userString.length > 2) {
+                $ctrl.add({myString: $ctrl.userString});
+                $ctrl.userString = '';
+            }
+
         };
-        /**
-         * Запускает интервал для проверки на изменение цвета
-         */
-    }]
+    }],
+    templateUrl: './components/addStringComponent/addString.html'
 });
