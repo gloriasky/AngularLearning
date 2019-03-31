@@ -58,60 +58,56 @@ li.dropdown {
 }
 list{
     display: block;
+    position: center;
     margin-left: 30%;
-    height: 600px;
-    width: 600px;
+    /*height: 600px;*/
+    /*width: 600px;*/
     border: 3px solid black;
-    overflow-y: auto;
-    overflow-x: hidden;
+    /*overflow-y: auto;*/
+    /*overflow-x: hidden;*/
+    width: 600px;
+    max-height: 600px;
+    overflow: auto;
 }
 .red{
-    position: relative;
-    left: 50px;
-    height: 15px;
-    width: 15px;
+    height: 20px;
+    width: 20px;
     display: inline-block;
     background-color:red;
 }
 .yellow{
-    position: relative;
-    left: 50px;
-    height: 15px;
-    width: 15px;
+    height: 20px;
+    width: 20px;
     display: inline-block;
     background-color:yellow;
 }
 .green{
-    position: relative;
-    left: 50px;
-    height: 15px;
-    width: 15px;
+    height: 20px;
+    width: 20px;
     display: inline-block;
     background-color:green;
 }
 .delete{
-    height: 20px;
-    width: 20px;
+    width: 20px; /* Width of new image */
+    height: 20px; /* Height of new image */
     display: inline-block;
-    position: relative;
-    left: 250px;
     background-image: url("res/delete.png");
 }
 
 .string {
-    position: relative;
-    left: 100px;
+    width: 500px;
+    height: auto;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
 }
 .reset {
-    height: 20px;
     width: 20px;
+    height: 20px;
     display: inline-block;
-    position: relative;
-    left: 200px;
     background-image: url("res/reset.png");
 }
-
 input {
     height: auto;
     width: 400px;
