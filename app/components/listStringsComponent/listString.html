@@ -5,10 +5,10 @@
         </td>
         <td class="string">{{ str.strlabel }}</td>
         <td>
-            <div class="reset" ng-click="$ctrl.reset({index: $index})" title="{{'reset' | translate}}"></div>
+            <div class="reset" ng-click="$ctrl.resetTimer($index)" title="{{'reset' | translate}}"></div>
         </td>
         <td>
-            <div class="delete" ng-click="$ctrl.onDelete($index)" title="{{'remove' | translate}}"></div>
+            <div class="delete" ng-click="$ctrl.deleteString($index)" title="{{'remove' | translate}}"></div>
         </td>
     </tr>
 </table>

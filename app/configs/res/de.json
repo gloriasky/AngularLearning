@@ -1,12 +1,12 @@
 {
-  "add": "Hinzufügen",
-  "delete": "Löschen",
+  "onAdd": "Hinzufügen",
+  "onDelete": "Löschen",
   "string": "Zeichenfolge enthält nur Zeichen",
   "lang": "Sprachen",
   "green": "Frisch",
   "yellow": "Lain",
   "red": "Faul",
   "remove": "Löschen",
-  "reset": "Zurücksetzen",
+  "onReset": "Zurücksetzen",
   "notification": "Sie müssen mindestens 3 Zeichen eingeben!"
 }

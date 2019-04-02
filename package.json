@@ -8,17 +8,25 @@
   },
   "scripts": {
     "build": "webpack -w",
-    "start": "http-server ./app -a localhost -p 8010 -c-1"
+    "start": "http-server ./app -a localhost -p 8010 -c-1",
+    "test": "karma start karma.conf.js"
   },
   "author": "kseniyavaladzko",
   "license": "ISC",
   "description": "My task",
   "devDependencies": {
+    "angular-mocks": "^1.7.5",
     "css-loader": "2.1.1",
-    "webpack": "4.29.6",
-    "style-loader": "0.23.1",
-    "webpack-cli": "3.2.3",
+    "jasmine-core": "3.3.0",
+    "karma": "^3.1.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
+    "karma-jasmine": "^1.1.2",
+    "karma-jasmine-html-reporter": "^1.4.0",
     "lodash": "4.17.11",
-    "url-loader": "1.1.2"
+    "style-loader": "0.23.1",
+    "url-loader": "1.1.2",
+    "webpack": "4.29.6",
+    "webpack-cli": "3.2.3"
   }
 }

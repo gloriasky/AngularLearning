@@ -1,16 +1,18 @@
+angular.module('myApp').controller("ListController", ListController);
 angular.module('myApp').component('list', {
     bindings:{
-        delete: "&",
-        reset: "&",
+        onDelete: "&",
+        onReset: "&",
         strings: "<"
     },
-    controller: [function () {
-        let $ctrl = this;
-
-        $ctrl.onDelete = index => $ctrl.delete({index});
-
-        $ctrl.onReset = index => $ctrl.reset({index});
-
-    }],
+    controller: ListController,
     templateUrl: './components/listStringsComponent/listString.html'
 });
+
+function ListController() {
+    let $ctrl = this;
+
+    $ctrl.deleteString = index => $ctrl.onDelete({index});
+
+    $ctrl.resetTimer = index => $ctrl.onReset({index});
+}
