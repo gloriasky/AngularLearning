@@ -1,4 +1,4 @@
-<div class="center" ng-if="!$ctrl.strings.length">Нет елементов</div>
+<div class="center" ng-if="!$ctrl.strings.length">{{ 'noEl' | translate}}</div>
 <table class="center">
     <tr ng-if="$ctrl.strings.length" ng-repeat="str in $ctrl.strings track by $index">
         <td>

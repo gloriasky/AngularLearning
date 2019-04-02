@@ -8,5 +8,6 @@
   "red": "Faul",
   "remove": "Löschen",
   "onReset": "Zurücksetzen",
-  "notification": "Sie müssen mindestens 3 Zeichen eingeben!"
+  "notification": "Sie müssen mindestens 3 Zeichen eingeben!",
+  "noEl": "keine Elemente"
 }

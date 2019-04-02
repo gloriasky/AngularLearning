@@ -8,5 +8,6 @@
   "red": "Rotten",
   "remove": "Delete",
   "onReset": "Reset",
-  "notification": "You must enter at least 3 characters"
+  "notification": "You must enter at least 3 characters",
+  "noEl": "no elements"
 }
