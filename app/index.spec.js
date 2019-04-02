@@ -3,7 +3,7 @@ describe('Module test', function () {
     beforeEach(function () {
         myApp = angular.module('myApp');
     });
-    it('Load main module', function () {
+    it('loading main module', function () {
         expect(myApp).toBeDefined();
     })
 });

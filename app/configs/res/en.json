@@ -1,5 +1,5 @@
 {
-  "onAdd": "Add",
+  "add": "Add",
   "onDelete": "Delete",
   "string": "the string doesn't contain numbers",
   "lang": "Languages",

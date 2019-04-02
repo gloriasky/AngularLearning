@@ -8,11 +8,7 @@ import './styles/style.css';
 /**
  * Регистрация модуля
  */
-angular
-    .module('myApp', ['pascalprecht.translate']);
-angular.module('myApp').controller('Test', function ($scope) {
-   $scope.title = "Hello";
-});
+angular.module('myApp', ['pascalprecht.translate']);
 require('./services/myService');
 require('./configs/configs');
 require('./filters/numberFilter');

@@ -1,7 +1,7 @@
 describe('my service test:', function () {
     let service;
     beforeEach(function () {
-        angular.mock.module('myApp');
+        module('myApp');
     });
     beforeEach(inject(function (myService) {
         service = myService;
@@ -26,7 +26,7 @@ describe('my service test:', function () {
         let d = new Date();
         d.setSeconds(d.getSeconds() - 65);
         service.strings[0] = {str: 'Hello world', color: "red", time: d};
-        service.onReset(0);
+        service.reset(0);
         expect(service.strings[0].color).toBe("green");
     });
     it('changing color to yellow', function () {

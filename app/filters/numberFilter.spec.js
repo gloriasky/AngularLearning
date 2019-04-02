@@ -1,7 +1,7 @@
 describe('Number Filter', function () {
     let getNumberFilter;
     beforeEach(function () {
-        angular.mock.module('myApp');
+        module('myApp');
     });
     beforeEach(inject(function (getNumbersFilter) {
         getNumberFilter = getNumbersFilter;

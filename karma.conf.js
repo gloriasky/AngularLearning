@@ -21,7 +21,8 @@ module.exports = function (config) {
             './app/filters/numberFilter.spec.js',
             './app/index.spec.js',
             './app/components/listStringsComponent/listStringController.spec.js',
-            'app/components/mainComponent/main.spec.js'
+            'app/components/mainComponent/main.spec.js',
+            'app/components/navbarComponent/navBarController.spec.js'
         ],
 
 

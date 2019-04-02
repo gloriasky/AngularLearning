@@ -1,5 +1,5 @@
 {
-  "onAdd": "Hinzufügen",
+  "add": "Hinzufügen",
   "onDelete": "Löschen",
   "string": "Zeichenfolge enthält nur Zeichen",
   "lang": "Sprachen",

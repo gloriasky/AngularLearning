@@ -38,5 +38,11 @@ describe("Main component", function () {
     it('should start interval', function () {
         ctrl.onAdd("mgrngrjngjrngw");
         expect(ctrl.colorChange).toBeDefined();
-    })
+    });
+    it('should stop interval', function () {
+        // ctrl.onAdd("mgrngrjngjrngw");
+        // expect(ctrl.colorChange).toBeDefined();
+        // ctrl.strings[0].color='red';
+        // expect(ctrl.colorChange).not.toBeDefined();
+    });
 });

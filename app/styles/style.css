@@ -61,11 +61,6 @@ list{
     display: block;
     position: center;
     margin-left: 30%;
-    /*height: 600px;*/
-    /*width: 600px;*/
-    border: 3px solid black;
-    /*overflow-y: auto;*/
-    /*overflow-x: hidden;*/
     width: 600px;
     max-height: 600px;
     overflow: auto;
@@ -89,8 +84,8 @@ list{
     background-color:green;
 }
 .delete{
-    width: 20px; /* Width of new image */
-    height: 20px; /* Height of new image */
+    width: 20px;
+    height: 20px;
     display: inline-block;
     background-image: url("res/delete.png");
 }

@@ -7,7 +7,15 @@
  */
 angular
     .module('myApp').service('myService', ['$translate', 'getNumbersFilter', function ($translate, getNumbersFilter) {
+    /**
+     * Массив для работы с объектами
+     * @type {Array}
+     */
     this.strings = [];
+    /**
+     * Переменная, отслеживающая когда надо отстановить интервал
+     * @type {boolean}
+     */
     this.shouldStop = false;
     /**
      * Добавление строки в массив
@@ -38,7 +46,6 @@ angular
     /**
      * Изменение цвета в соответсвии со временем, а также отслеживание выполнения условия для остановки интервала
      *
-     * change!
      */
     this.colorChange = () => {
         let dateNow = new Date();
@@ -58,6 +65,9 @@ angular
             });
         }
     };
+    /**
+     * Функция для изменения лейбла после изменения языка
+     */
     this.changeLanguage = () => {
         _.forEach(this.strings, (element) => {
             element.strlabel = getNumbersFilter(element.str);

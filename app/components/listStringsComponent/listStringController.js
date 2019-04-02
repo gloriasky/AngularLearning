@@ -1,18 +1,35 @@
-angular.module('myApp').controller("ListController", ListController);
+/**
+ * Компонент, отвечающий за вывод массива
+ */
 angular.module('myApp').component('list', {
-    bindings:{
+    /**
+     * Связывание компонента
+     */
+    bindings: {
         onDelete: "&",
         onReset: "&",
         strings: "<"
     },
-    controller: ListController,
+    /**
+     * Контроллер
+     */
+    controller: [function () {
+        /**
+         * Текущий контекст
+         */
+        let $ctrl = this;
+        /**
+         * Удаление строки из массива
+         * @param index
+         * @return {*}
+         */
+        $ctrl.deleteString = index => $ctrl.onDelete({index});
+        /**
+         * Сброс таймера у конкретной строки
+         * @param index
+         * @return {void|*}
+         */
+        $ctrl.resetTimer = index => $ctrl.onReset({index});
+    }],
     templateUrl: './components/listStringsComponent/listString.html'
 });
-
-function ListController() {
-    let $ctrl = this;
-
-    $ctrl.deleteString = index => $ctrl.onDelete({index});
-
-    $ctrl.resetTimer = index => $ctrl.onReset({index});
-}
