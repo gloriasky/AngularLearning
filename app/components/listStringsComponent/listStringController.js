@@ -21,13 +21,11 @@ angular.module('myApp').component('list', {
         /**
          * Удаление строки из массива
          * @param index
-         * @return {*}
          */
         $ctrl.deleteString = index => $ctrl.onDelete({index});
         /**
          * Сброс таймера у конкретной строки
          * @param index
-         * @return {void|*}
          */
         $ctrl.resetTimer = index => $ctrl.onReset({index});
     }],

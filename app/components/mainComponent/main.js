@@ -5,7 +5,7 @@ angular.module('myApp').component('main', {
     templateUrl: './components/mainComponent/main.html',
     controller: ['myService', '$interval', function (myService, $interval) {
         /**
-         * Текущий контроллер
+         * Текущий контекст
          */
         let $ctrl = this;
         /**
@@ -47,7 +47,6 @@ angular.module('myApp').component('main', {
                         $interval.cancel($ctrl.colorChange);
                         $ctrl.colorChange = undefined;
                     }
-
                 }, 1000);
             }
         };
