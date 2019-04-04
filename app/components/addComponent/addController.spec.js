@@ -1,21 +1,40 @@
-describe("Add component", function () {
-    let ctrl;
+describe("Add component: ", function () {
+    let ctrl, $componentController;
     beforeEach(() => {
         module('myApp');
     });
-
     beforeEach(inject(function (_$componentController_) {
-        ctrl = _$componentController_('adder', null, {
-            onAdd: (text) => {
-                return true;
-            }
-        });
+        $componentController = _$componentController_;
     }));
+    it('должен вернуть false если строка не определена', function () {
+        ctrl = $componentController('adder');
 
-    it('should be defined', function () {
-        expect(ctrl).toBeDefined();
+        expect(ctrl.checkIfValid()).toBe(false);
     });
-    it('should call onAdd building', function () {
-        expect(ctrl.addString()).toBe(true);
+    it('должен вернуть false если строка пустая', function () {
+        ctrl = $componentController('adder');
+        ctrl.userString = "";
+
+        expect(ctrl.checkIfValid()).toBe(false);
     });
+    it('должен вернуть true если строка не пустая', function () {
+        ctrl = $componentController('adder');
+        ctrl.userString = "1";
+
+        expect(ctrl.checkIfValid()).toBe(true);
+
+        ctrl.userString = "12";
+
+        expect(ctrl.checkIfValid()).toBe(true);
+    });
+    it('должен вызывать onAdd() метод главного компонента', function () {
+        let onAddSpy = jasmine.createSpy('onAdd');
+        let bindings = {myString: {}, onAdd: onAddSpy};
+        ctrl = $componentController('adder', null, bindings);
+        ctrl.userString = "12345";
+        ctrl.addString();
+
+        expect(onAddSpy).toHaveBeenCalledWith({myString: "12345"});
+    });
+
 });

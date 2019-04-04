@@ -1,19 +1,31 @@
 describe('Language component:', function () {
-    let ctrl;
+    let ctrl, $componentController;
     beforeEach(() => {
         module('myApp');
+        inject(function (_$componentController_) {
+            $componentController = _$componentController_;
+        });
     });
 
-    beforeEach(inject(function (_$componentController_) {
-        ctrl = _$componentController_('navbar', null, {});
-    }));
-
-    it('should be defined', function () {
-        expect(ctrl).toBeDefined();
+    it('должен корректно прочитать данные из файла', function () {
+        ctrl = $componentController('navbar');
+        expect(ctrl.languages).toEqual([{
+            title: "Engilsh",
+            name: "en"
+        }, {
+            title: "Русский",
+            name: "ru"
+        }, {
+            title: "Deutsch",
+            name: "de"
+        }]);
     });
+    it('должен изменять язык при переключении', function () {
+        let onLanguageChangeSpy = jasmine.createSpy('onLanguageChange');
+        let bindings = {languageObject: {}, changeLanguage: onLanguageChangeSpy};
+        ctrl = $componentController('navbar', null, bindings);
+        ctrl.changeLanguage({title: "Русский", name: "ru"});
 
-    it('languages should be initialized', function () {
-        expect(ctrl.languages).toBeDefined();
-        expect(ctrl.languages.length).not.toBe(0);
-    });
+        expect(onLanguageChangeSpy).toHaveBeenCalled();
+    })
 });

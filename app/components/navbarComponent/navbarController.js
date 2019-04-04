@@ -15,7 +15,7 @@ angular.module('myApp').component('navbar', {
          * Функция для смены языка
          * @param languageObject
          */
-        this.changeLanguage = (languageObject) => {
+        this.onLanguageChange = (languageObject) => {
             $translate.use(languageObject.name).then(function () {
                     myService.changeLanguage();
                 }

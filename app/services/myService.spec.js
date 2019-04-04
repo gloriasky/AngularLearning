@@ -1,46 +1,51 @@
-describe('my service test:', function () {
+describe('my service:', function () {
     let service;
     beforeEach(function () {
         module('myApp');
-    });
-    beforeEach(inject(function (myService) {
+        inject(function (myService) {
         service = myService;
-    }));
-    it('initial configs', function () {
+        })
+    });
+    it('инициация сервиса', function () {
         expect(service.strings).toBeDefined();
         expect(service.strings.length).toBe(0);
         expect(service.shouldStop).toBeDefined();
         expect(service.shouldStop).toBe(false);
     });
-    it('adding element', function () {
+    it('должен добавлять элементы в массив', function () {
         service.addString('Hello world');
+
         expect(service.strings.length).toBe(1);
         expect(service.shouldStop).toBe(false);
     });
-    it('deleting element', function () {
+    it('должен удалять элемент с данным индексом из массива', function () {
         service.addString('Hello world');
         service.deleteString(0);
+
         expect(service.strings.length).toBe(0);
     });
-    it('resetting the element', function () {
+    it('должен сбрасывать таймер у элемента с определенным индексом', function () {
         let d = new Date();
         d.setSeconds(d.getSeconds() - 65);
         service.strings[0] = {str: 'Hello world', color: "red", time: d};
         service.reset(0);
+
         expect(service.strings[0].color).toBe("green");
     });
-    it('changing color to yellow', function () {
+    it('по прошествии 30 секунд должен изменить цвет элемента на желтый', function () {
         let d = new Date();
         d.setSeconds(d.getSeconds() - 30);
         service.strings[0] = {str: 'Hello world', color: "green", time: d};
         service.colorChange();
+
         expect(service.strings[0].color).toBe("yellow");
     });
-    it('changing color to red', function () {
+    it('по прошествии 60 секунд должен изменить цвет элемента на красный', function () {
         let d = new Date();
         d.setSeconds(d.getSeconds() - 65);
         service.strings[0] = {str: 'Hello world', color: "green", time: d};
         service.colorChange();
+
         expect(service.strings[0].color).toBe("red");
     })
 });

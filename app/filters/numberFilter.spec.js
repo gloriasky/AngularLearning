@@ -2,10 +2,10 @@ describe('Number Filter', function () {
     let getNumberFilter;
     beforeEach(function () {
         module('myApp');
+        inject(function (getNumbersFilter) {
+            getNumberFilter = getNumbersFilter;
+        })
     });
-    beforeEach(inject(function (getNumbersFilter) {
-        getNumberFilter = getNumbersFilter;
-    }));
     it('should return number value for string that contains numbers', function () {
         expect(getNumberFilter('1test1')).toBe('11');
     });

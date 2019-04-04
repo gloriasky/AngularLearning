@@ -1,48 +1,44 @@
-describe("Main component", function () {
-    let ctrl;
+describe("Main component: ", function () {
+    let ctrl, $componentController;
     beforeEach(() => {
         module('myApp');
     });
 
     beforeEach(inject(function (_$componentController_) {
-        ctrl = _$componentController_('main', null);
+        $componentController = _$componentController_;
     }));
 
-    it('should be defined', function () {
-        expect(ctrl).toBeDefined();
+    it('должен вызвать addString(text) метод сервиса', function () {
+        let onAddSpy = jasmine.createSpy('onAdd');
+        let bindings = {onAdd: onAddSpy};
+        ctrl = $componentController('main', null, bindings);
+        ctrl.onAdd("4567890");
+
+        expect(onAddSpy).toHaveBeenCalledWith("4567890");
     });
-    it('have defined array', function () {
-        expect(ctrl.strings).toBeDefined();
-        expect(ctrl.strings.length).toBe(0);
-    });
-    it('should add element with the help of service', function () {
-        ctrl.onAdd("113232321");
-        expect(ctrl.strings.length).toBe(1);
-    });
-    it('should delete element with the help of service', function () {
-        ctrl.onAdd("113232321");
-        ctrl.onDelete(0);
-        expect(ctrl.strings.length).toBe(0);
+    it('должен вызвать deleteString(index) метод сервиса', function () {
+        let onDeleteSpy = jasmine.createSpy('onDelete');
+        let bindings = {onDelete: onDeleteSpy};
+        ctrl = $componentController('main', null, bindings);
+        ctrl.onDelete(3);
+
+        expect(onDeleteSpy).toHaveBeenCalledWith(3);
     });
 
-    it('should reset element with the help of service', function () {
-        let d = new Date();
-        d.setSeconds(d.getSeconds() - 65);
-        ctrl.strings[0] = {str: 'Hello world', color: "red", time: d};
-        ctrl.onReset(0);
-        expect(ctrl.strings[0].color).toBe("green");
+    it('должен вызвать reset(index) метод сервиса', function () {
+        let onResetSpy = jasmine.createSpy('onReset');
+        let bindings = {onReset: onResetSpy};
+        ctrl = $componentController('main', null, bindings);
+        ctrl.onReset(3);
+
+        expect(onResetSpy).toHaveBeenCalledWith(3);
     });
-    it('.colorChange shouldn\'t be defined initially', function () {
-        expect(ctrl.colorChange).not.toBeDefined();
-    });
+
     it('should start interval', function () {
         ctrl.onAdd("mgrngrjngjrngw");
         expect(ctrl.colorChange).toBeDefined();
     });
     it('should stop interval', function () {
-        // ctrl.onAdd("mgrngrjngjrngw");
-        // expect(ctrl.colorChange).toBeDefined();
-        // ctrl.strings[0].color='red';
-        // expect(ctrl.colorChange).not.toBeDefined();
+
     });
 });
