@@ -1,4 +1,4 @@
-describe("Add component: ", function () {
+describe("Компонент добавления строки: ", function () {
     let ctrl, $componentController;
     beforeEach(() => {
         module('myApp');
@@ -22,10 +22,6 @@ describe("Add component: ", function () {
         ctrl.userString = "1";
 
         expect(ctrl.checkIfValid()).toBe(true);
-
-        ctrl.userString = "12";
-
-        expect(ctrl.checkIfValid()).toBe(true);
     });
     it('должен вызывать onAdd() метод главного компонента', function () {
         let onAddSpy = jasmine.createSpy('onAdd');
@@ -36,5 +32,4 @@ describe("Add component: ", function () {
 
         expect(onAddSpy).toHaveBeenCalledWith({myString: "12345"});
     });
-
 });

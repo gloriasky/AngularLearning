@@ -1,44 +1,77 @@
-describe("Main component: ", function () {
-    let ctrl, $componentController;
+describe("Главный компонент: ", function () {
+    let ctrl, $componentController, myService, $interval;
     beforeEach(() => {
         module('myApp');
+        inject(function (_$componentController_, _myService_, _$interval_) {
+            $componentController = _$componentController_;
+            myService = _myService_;
+            $interval = _$interval_;
+        })
     });
-
-    beforeEach(inject(function (_$componentController_) {
-        $componentController = _$componentController_;
-    }));
 
     it('должен вызвать addString(text) метод сервиса', function () {
-        let onAddSpy = jasmine.createSpy('onAdd');
-        let bindings = {onAdd: onAddSpy};
+        spyOn(myService, 'addString');
+        let startIntervalSpy = jasmine.createSpy('startInterval');
+        let bindings = {startInterval: startIntervalSpy};
         ctrl = $componentController('main', null, bindings);
-        ctrl.onAdd("4567890");
+        ctrl.onAdd("12345678");
 
-        expect(onAddSpy).toHaveBeenCalledWith("4567890");
+        expect(myService.addString).toHaveBeenCalledWith("12345678");
+        expect(startIntervalSpy).toHaveBeenCalled();
     });
+
     it('должен вызвать deleteString(index) метод сервиса', function () {
-        let onDeleteSpy = jasmine.createSpy('onDelete');
-        let bindings = {onDelete: onDeleteSpy};
-        ctrl = $componentController('main', null, bindings);
+        spyOn(myService, 'deleteString');
+        ctrl = $componentController('main');
         ctrl.onDelete(3);
 
-        expect(onDeleteSpy).toHaveBeenCalledWith(3);
+        expect(myService.deleteString).toHaveBeenCalledWith(3);
     });
 
     it('должен вызвать reset(index) метод сервиса', function () {
-        let onResetSpy = jasmine.createSpy('onReset');
-        let bindings = {onReset: onResetSpy};
+        spyOn(myService, 'reset');
+        let startIntervalSpy = jasmine.createSpy('startInterval');
+        let bindings = {startInterval: startIntervalSpy};
         ctrl = $componentController('main', null, bindings);
-        ctrl.onReset(3);
+        ctrl.onReset(0);
 
-        expect(onResetSpy).toHaveBeenCalledWith(3);
+        expect(myService.reset).toHaveBeenCalledWith(0);
+        expect(startIntervalSpy).toHaveBeenCalled();
     });
 
-    it('should start interval', function () {
+    it('должен начать интервал при добавлении элемента', function () {
+        ctrl = $componentController('main');
         ctrl.onAdd("mgrngrjngjrngw");
-        expect(ctrl.colorChange).toBeDefined();
-    });
-    it('should stop interval', function () {
 
+        expect(ctrl.colorChangeInterval).toBeDefined();
+        expect(myService.shouldStop).toBe(false);
     });
+    it('должен начать интервал при сбрасывании таймера  элемента', function () {
+        ctrl = $componentController('main');
+        ctrl.onAdd("23456");
+        ctrl.strings[0].color = "red";
+        $interval.cancel(ctrl.colorChangeInterval);
+        myService.colorCheck();
+
+        expect(myService.shouldStop).toBeTruthy();
+
+        ctrl.onReset(0);
+
+        expectAsync(ctrl.colorChangeInterval).toBeResolved();
+        expect(myService.shouldStop).toBe(false);
+    });
+
+    it('должен обратиться к функции colorCheck()', function () {
+        spyOn(myService, 'colorCheck');
+        ctrl = $componentController('main');
+        ctrl.onAdd("12345y7");
+
+        expect(myService.colorCheck).toHaveBeenCalled();
+    });
+    it('интервал должен быть неопределен при инициализации компонента', inject(function () {
+        ctrl = $componentController('main');
+
+        expect(ctrl.colorChangeInterval).not.toBeDefined();
+    }));
+
 });

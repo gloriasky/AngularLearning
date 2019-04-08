@@ -1,4 +1,4 @@
-describe('Language component:', function () {
+describe('Компонент, отвечающий за языки:', function () {
     let ctrl, $componentController;
     beforeEach(() => {
         module('myApp');
@@ -9,6 +9,7 @@ describe('Language component:', function () {
 
     it('должен корректно прочитать данные из файла', function () {
         ctrl = $componentController('navbar');
+
         expect(ctrl.languages).toEqual([{
             title: "Engilsh",
             name: "en"
@@ -22,7 +23,7 @@ describe('Language component:', function () {
     });
     it('должен изменять язык при переключении', function () {
         let onLanguageChangeSpy = jasmine.createSpy('onLanguageChange');
-        let bindings = {languageObject: {}, changeLanguage: onLanguageChangeSpy};
+        let bindings = {changeLanguage: onLanguageChangeSpy};
         ctrl = $componentController('navbar', null, bindings);
         ctrl.changeLanguage({title: "Русский", name: "ru"});
 

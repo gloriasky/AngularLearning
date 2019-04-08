@@ -16,7 +16,7 @@ angular
      * Переменная, отслеживающая когда надо отстановить интервал
      * @type {boolean}
      */
-    this.shouldStop = false;
+    this.shouldStop = true;
     /**
      * Добавление строки в массив
      * @param str
@@ -32,7 +32,8 @@ angular
     this.deleteString = (idx) => {
         _.remove(this.strings,(element)=> {
             return _.indexOf(this.strings,element)===idx;
-        })
+        });
+        this.colorCheck();
     };
     /**
      * Сброс счетчика
@@ -47,7 +48,7 @@ angular
      * Изменение цвета в соответсвии со временем, а также отслеживание выполнения условия для остановки интервала
      *
      */
-    this.colorChange = () => {
+    this.colorCheck = () => {
         let dateNow = new Date();
         this.shouldStop = _.every(this.strings,(str)=>{
             return str.color === "red";

@@ -16,13 +16,7 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             './app/dist/bundle.js',
-            './app/components/addComponent/addController.spec.js',
-            './app/services/myService.spec.js',
-            './app/filters/numberFilter.spec.js',
-            './app/index.spec.js',
-            './app/components/listStringsComponent/listStringController.spec.js',
-            'app/components/mainComponent/main.spec.js',
-            'app/components/navbarComponent/navBarController.spec.js'
+            './app/**/*.spec.*',
         ],
 
 
@@ -72,4 +66,4 @@ module.exports = function (config) {
         // how many browser should be started simultaneous
         concurrency: Infinity
     })
-}
+};

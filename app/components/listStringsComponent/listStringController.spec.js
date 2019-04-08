@@ -1,4 +1,4 @@
-describe("List component: ", function () {
+describe("Компонент вывода массива строк: ", function () {
     let ctrl, $componentController;
     beforeEach(() => {
         module('myApp');

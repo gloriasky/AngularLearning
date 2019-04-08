@@ -10,7 +10,7 @@ angular.module('myApp').component('navbar', {
         /**
          * Массив языков возможных для выбора
          */
-        this.languages = require('./langs');
+        this.languages = require('../../configs/res/langs');
         /**
          * Функция для смены языка
          * @param languageObject

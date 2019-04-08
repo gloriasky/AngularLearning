@@ -24,7 +24,7 @@ angular.module('myApp').component('main', {
          */
         $ctrl.onReset = index => {
             myService.reset(index);
-            $ctrl.change();
+            $ctrl.startInterval();
         };
         /**
          * Добавляет строку в массив
@@ -32,20 +32,20 @@ angular.module('myApp').component('main', {
          */
         $ctrl.onAdd = myString => {
             myService.addString(myString);
-            $ctrl.change();
+            $ctrl.startInterval();
         };
         /**
          * Запускает интервал для проверки на изменение цвета
          */
-        $ctrl.colorChange = undefined;
-        $ctrl.change = () => {
-            if (!angular.isDefined($ctrl.colorChange)) {
-                $ctrl.colorChange = $interval(() => {
+        $ctrl.colorChangeInterval = undefined;
+        $ctrl.startInterval = () => {
+            if (!angular.isDefined($ctrl.colorChangeInterval)) {
+                $ctrl.colorChangeInterval = $interval(() => {
                     if (!myService.shouldStop) {
-                        myService.colorChange();
+                        myService.colorCheck();
                     } else {
-                        $interval.cancel($ctrl.colorChange);
-                        $ctrl.colorChange = undefined;
+                        $interval.cancel($ctrl.colorChangeInterval);
+                        $ctrl.colorChangeInterval = undefined;
                     }
                 }, 1000);
             }
