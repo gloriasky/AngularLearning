@@ -1,8 +1,7 @@
 /**
  * Компонент, отвечающий за добавление строки в массив
  */
-module.exports = function (app) {
-    app.component('adder', {
+angular.module("myApp").component('adder', {
         /**
          * Связывание компонента
          */
@@ -12,24 +11,18 @@ module.exports = function (app) {
         /**
          * Контроллеры
          */
-        controller: addController,
-        templateUrl: './components/addComponent/add.html'
-    });
-
-    function addController() {
-        /**
-         * Текущий контекст
-         */
-        let $ctrl = this;
-        /**
-         * Добавляем строку в массив
-         * @return {void|*|boolean}
-         */
-        $ctrl.addString = () => $ctrl.onAdd({myString: $ctrl.userString});
-        /**
-         * Проверяем модель на валидность
-         * @return {boolean}
-         */
-        $ctrl.checkIfValid = () => !_.isEmpty($ctrl.userString);
-    }
-};
+        controller: [function () {
+            let $ctrl = this;
+            /**
+             * Добавляем строку в массив
+             * @return {void|*|boolean}
+             */
+            $ctrl.addString = () => $ctrl.onAdd({myString: $ctrl.userString});
+            /**
+             * Проверяем модель на валидность
+             * @return {boolean}
+             */
+            $ctrl.checkIfValid = () => !_.isEmpty($ctrl.userString);
+        }],
+    template: require("./add.html")
+});

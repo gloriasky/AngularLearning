@@ -2,7 +2,7 @@
  * Регистрация компонента для управления сменой языков
  */
 angular.module('myApp').component('navbar', {
-    templateUrl: 'components/navbarComponent/navbar.html',
+    template: require("./navbar.html"),
     /**
      * Контроллер
      */

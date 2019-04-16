@@ -3,7 +3,7 @@
         <a class="dropbtn" translate="lang"></a>
         <div class="dropdown-content">
             <div ng-repeat="language in $ctrl.languages track by $index">
-                <a ng-click="$ctrl.onLanguageChange(language)">{{language.title}}</a>
+                <a ng-class="language.name" ng-click="$ctrl.onLanguageChange(language)">{{language.title}}</a>
             </div>
         </div>
     </li>

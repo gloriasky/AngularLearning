@@ -11,11 +11,11 @@ import './styles/style.css';
  * Регистрация модуля
  */
 let app = angular.module('myApp', ['pascalprecht.translate']);
-require('./services/');
+require('./services/myService');
 require('./configs/configs');
 require('./filters/numberFilter');
 require('./components/navbarComponent/navbarController');
 require('./components/mainComponent/main');
-require('./components/addComponent/addController')(app);
+require('./components/addComponent/addController');
 require('./components/listStringsComponent/listStringController');
 

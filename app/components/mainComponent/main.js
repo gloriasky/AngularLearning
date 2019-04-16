@@ -2,7 +2,7 @@
  * Регистрация главного компонента
  */
 angular.module('myApp').component('main', {
-    templateUrl: './components/mainComponent/main.html',
+    template: require("./main.html"),
     controller: ['myService', '$interval', function (myService, $interval) {
         /**
          * Текущий контекст

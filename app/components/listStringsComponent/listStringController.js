@@ -29,5 +29,5 @@ angular.module('myApp').component('list', {
          */
         $ctrl.resetTimer = index => $ctrl.onReset({index});
     }],
-    templateUrl: './components/listStringsComponent/listString.html'
+    template: require("./listString.html")
 });

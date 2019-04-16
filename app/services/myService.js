@@ -5,8 +5,7 @@
  * Сервис для работы с данными
  *
  */
-angular
-    .module('myApp').service('myService', ['$translate', 'getNumbersFilter', function ($translate, getNumbersFilter) {
+angular.module('myApp').service('myService', ['$translate', 'getNumbersFilter', function ($translate, getNumbersFilter) {
     /**
      * Массив для работы с объектами
      * @type {Array}
@@ -30,8 +29,8 @@ angular
      * @param idx
      */
     this.deleteString = (idx) => {
-        _.remove(this.strings,(element)=> {
-            return _.indexOf(this.strings,element)===idx;
+        _.remove(this.strings, (element) => {
+            return _.indexOf(this.strings, element) === idx;
         });
         this.colorCheck();
     };
@@ -41,7 +40,7 @@ angular
      */
     this.reset = (index) => {
         this.strings[index].time = new Date();
-        this.strings[index].color="green";
+        this.strings[index].color = "green";
         this.shouldStop = false;
     };
     /**
@@ -50,10 +49,10 @@ angular
      */
     this.colorCheck = () => {
         let dateNow = new Date();
-        this.shouldStop = _.every(this.strings,(str)=>{
+        this.shouldStop = _.every(this.strings, (str) => {
             return str.color === "red";
         });
-        if(!this.shouldStop) {
+        if (!this.shouldStop) {
             _.each(this.strings, (element) => {
                 if (element.color !== "red") {
                     let numOfSeconds = (dateNow - element.time) / 1000;
