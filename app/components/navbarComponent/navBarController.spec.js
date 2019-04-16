@@ -10,6 +10,7 @@ describe('Компонент, отвечающий за языки:', function (
             _$httpBackend_.whenGET("./configs/res/en.json").respond(null);
             $rootScope = _$rootScope_;
             $compile = _$compile_;
+
             $scope = $rootScope.$new();
             element = $compile('<navbar></navbar>')($scope);
             $scope.$digest();

@@ -9,8 +9,8 @@ describe("Компонент вывода массива строк: ", function
 
             $rootScope = _$rootScope_;
             $compile = _$compile_;
-            $scope = $rootScope.$new();
 
+            $scope = $rootScope.$new();
             element = $compile('<list on-delete="$ctrl.onDelete(index)" on-reset="$ctrl.onReset(index)" strings="$ctrl.strings"></list>')($scope);
             $scope.$digest();
         })

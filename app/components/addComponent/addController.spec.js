@@ -9,8 +9,8 @@ describe("Компонент, отвечающий за добавление с�
 
             $rootScope = _$rootScope_;
             $compile = _$compile_;
-            $scope = $rootScope.$new();
 
+            $scope = $rootScope.$new();
             element = $compile('<adder on-add="$ctrl.onAdd(myString)"></adder>')($scope);
             $scope.$digest();
             ctrl = element.controller('adder');

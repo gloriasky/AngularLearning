@@ -1,16 +1,14 @@
-require('angular');
 let angular = require('angular');
-require('jqlite');
 let _ = require('lodash');
 require('angular-mocks');
 require('angular-translate');
 require("angular-translate-loader-static-files");
-import './styles/style.css';
+require('./styles/style.css');
 
 /**
  * Регистрация модуля
  */
-let app = angular.module('myApp', ['pascalprecht.translate']);
+angular.module('myApp', ['pascalprecht.translate']);
 require('./services/myService');
 require('./configs/configs');
 require('./filters/numberFilter');
