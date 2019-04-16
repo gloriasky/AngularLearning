@@ -17,6 +17,7 @@ module.exports = function (config) {
         files: [
             './app/dist/bundle.js',
             './app/**/*.spec.*',
+            './app/**/*.html'
         ],
 
 
@@ -27,14 +28,19 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            '/app/*.js': 'coverage'
+            'app/components/addComponent/*.html': ['ng-html2js'],
+            'app/components/listStrings/*.html': ['ng-html2js'],
+            'app/components/mainComponent/*.html': ['ng-html2js']
         },
 
+        ngHtml2JsPreprocessor: {
+            stripPrefix: 'app/'
+        },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'coverage'],
+        reporters: ['progress'],
 
         // web server port
         port: 9876,

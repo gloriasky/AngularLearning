@@ -1,12 +1,14 @@
+var webpack = require('webpack');
 module.exports={
     context: __dirname+'/app',
     entry: {
-        index: './index.js'
+        app: './app.js'
     },
     mode: "development",
     output: {
         path: __dirname+'/app/dist',
-        filename: "bundle.js"
+        filename: "bundle.js",
+
     },
     module: {
         rules: [
@@ -17,7 +19,14 @@ module.exports={
             {
                 test: /\.png/,
                 loader: 'url-loader'
-            }
+            },
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader',
+                }
+            },
+
         ]
-    }
+    },
 };

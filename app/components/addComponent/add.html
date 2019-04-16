@@ -1,5 +1,5 @@
 <div class="center">
-    <input maxlength="15" minlength="3" ng-model="$ctrl.userString"/>
+    <input id="input" maxlength="15" minlength="3" ng-model="$ctrl.userString"/>
     <button ng-click="$ctrl.addString()" ng-disabled="!$ctrl.checkIfValid()">{{ 'add' | translate }}</button>
     <div ng-if="!$ctrl.checkIfValid()"><p>{{'notification' | translate }}</p></div>
 </div>

@@ -1,17 +1,22 @@
 /**
  * Компонент, отвечающий за добавление строки в массив
  */
-angular.module('myApp').component('adder', {
-    /**
-     * Связывание компонента
-     */
-    bindings: {
-        onAdd: "&"
-    },
-    /**
-     * Контроллеры
-     */
-    controller: [function () {
+module.exports = function (app) {
+    app.component('adder', {
+        /**
+         * Связывание компонента
+         */
+        bindings: {
+            onAdd: "&"
+        },
+        /**
+         * Контроллеры
+         */
+        controller: addController,
+        templateUrl: './components/addComponent/add.html'
+    });
+
+    function addController() {
         /**
          * Текущий контекст
          */
@@ -26,6 +31,5 @@ angular.module('myApp').component('adder', {
          * @return {boolean}
          */
         $ctrl.checkIfValid = () => !_.isEmpty($ctrl.userString);
-    }],
-    templateUrl: './components/addComponent/add.html'
-});
+    }
+};
