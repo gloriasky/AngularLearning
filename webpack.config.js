@@ -25,12 +25,9 @@ module.exports = {
                         attrs: [':data-src']
                     }
                 }
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
             }]
+
+
     }
 
 };

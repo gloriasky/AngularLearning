@@ -21,6 +21,7 @@ describe("Компонент, отвечающий за добавление с�
         let spy = jasmine.createSpy();
         element.find("input").controller("ngModel").$setViewValue('test');
         ctrl.onAdd = spy;
+        console.log(ctrl);
         let button = element.find("button");
         button.triggerHandler('click');
 

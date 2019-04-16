@@ -5,7 +5,7 @@ describe("Компонент вывода массива строк: ", function
     beforeEach(() => {
         module('myApp');
         inject(function (_$compile_, _$rootScope_, _$httpBackend_) {
-            _$httpBackend_.whenGET("./configs/res/ru.json").respond(null);
+            // _$httpBackend_.whenGET("./configs/res/ru.json").respond(null);
 
             $rootScope = _$rootScope_;
             $compile = _$compile_;
