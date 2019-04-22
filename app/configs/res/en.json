@@ -9,5 +9,9 @@
   "remove": "Delete",
   "onReset": "Reset",
   "notification": "You must enter at least 3 characters",
-  "noEl": "no elements"
+  "noEl": "no elements",
+  "chooselang": "Choose language",
+  "entername": "Enter your name",
+  "hello": "Hello",
+  "none": "None"
 }

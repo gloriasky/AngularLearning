@@ -8,7 +8,8 @@ angular.module('myApp').component('list', {
     bindings: {
         onDelete: "&",
         onReset: "&",
-        strings: "<"
+        strings: "<",
+        colors: "<"
     },
     /**
      * Контроллер

@@ -11,21 +11,19 @@ describe("Компонент, отвечающий за добавление с�
             $compile = _$compile_;
 
             $scope = $rootScope.$new();
-            element = $compile('<adder on-add="$ctrl.onAdd(myString)"></adder>')($scope);
+            element = $compile('<adder on-add="onAdd(myString)"></adder>')($scope);
             $scope.$digest();
             ctrl = element.controller('adder');
         })
     });
 
     it('должен вызвать onCreate метод', function () {
-        let spy = jasmine.createSpy();
         element.find("input").controller("ngModel").$setViewValue('test');
-        ctrl.onAdd = spy;
-        console.log(ctrl);
-        let button = element.find("button");
+        $scope.onAdd = jasmine.createSpy("onAdd");
+        let button = element.find("button", "add");
         button.triggerHandler('click');
 
-        expect(spy).toHaveBeenCalledWith({myString: "test"});
+        expect($scope.onAdd).toHaveBeenCalledWith("test");
     });
     it('должен вернуть false если строка не определена', function () {
 

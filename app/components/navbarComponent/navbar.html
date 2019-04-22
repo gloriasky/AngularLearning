@@ -1,10 +1,10 @@
+<setting-component display="$ctrl.settingDisplay" languages="$ctrl.languages" name="$ctrl.welcome"
+                   on-language-change="$ctrl.onLanguageChange(lang)"></setting-component>
 <ul>
-    <li class="dropdown">
-        <a class="dropbtn" translate="lang"></a>
-        <div class="dropdown-content">
-            <div ng-repeat="language in $ctrl.languages track by $index">
-                <a ng-class="language.name" ng-click="$ctrl.onLanguageChange(language)">{{language.title}}</a>
-            </div>
-        </div>
+    <li>
+        <button class="setting" ng-click="$ctrl.display()"></button>
     </li>
 </ul>
+<div class="center">
+    <div class="hello" ng-if="$ctrl.welcome"><span translate="hello"></span> {{$ctrl.welcome}}!</div>
+</div>

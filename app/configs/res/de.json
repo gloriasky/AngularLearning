@@ -9,5 +9,9 @@
   "remove": "Löschen",
   "onReset": "Zurücksetzen",
   "notification": "Sie müssen mindestens 3 Zeichen eingeben!",
-  "noEl": "keine Elemente"
+  "noEl": "keine Elemente",
+  "chooselang": "Wählen Sie eine Sprache",
+  "entername": "Geben Sie Ihren Namen ein",
+  "hello": "Guten tag",
+  "none": "Nein"
 }

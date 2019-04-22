@@ -13,6 +13,25 @@ angular.module('myApp').component('main', {
          * @type {Array}
          */
         $ctrl.strings = myService.strings;
+        $ctrl.colors = [
+            {
+                label: "none",
+                text: ""
+            },
+            {
+                label: "green",
+                text: "green"
+            },
+            {
+                label: "yellow",
+                text: "yellow"
+            },
+            {
+                label: "red",
+                text: "red"
+            }];
+        this.welcome = "Anomym";
+
         /**
          * Функция для удаления элемента массива по индексу
          * @param index

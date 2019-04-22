@@ -13,7 +13,10 @@ require('./services/myService');
 require('./configs/configs');
 require('./filters/numberFilter');
 require('./components/navbarComponent/navbarController');
+require('./components/settingComponent/settingComponent');
 require('./components/mainComponent/main');
+require('./components/filterComponent/filterController');
 require('./components/addComponent/addController');
 require('./components/listStringsComponent/listStringController');
+
 

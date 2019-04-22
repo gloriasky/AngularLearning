@@ -21,6 +21,13 @@ angular.module('myApp').component('navbar', {
                 }
             );
 
-        }
+        };
+        this.settingDisplay = "none";
+        this.welcome = "";
+
+        this.display = () => {
+            this.settingDisplay = "block";
+
+        };
     }]
 });

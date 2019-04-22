@@ -1,0 +1,5 @@
+<div class="center">
+    <input ng-model="$ctrl.text" type="text">
+    <select ng-change="$ctrl.filterArray()" ng-model="$ctrl.currentColor"
+            ng-options="color.label | translate for color in $ctrl.colors"></select>
+</div>
