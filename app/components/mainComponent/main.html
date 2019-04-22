@@ -1,5 +1,6 @@
 <div class="center">
     <adder on-add="$ctrl.onAdd(myString)"></adder>
+    <string-filter color="$ctrl.color" colors="$ctrl.colors" text="$ctrl.text"></string-filter>
     <list colors="$ctrl.colors" on-delete="$ctrl.onDelete(index)" on-reset="$ctrl.onReset(index)"
-          strings="$ctrl.strings"></list>
+          color="$ctrl.color" strings="$ctrl.strings" text="$ctrl.text"></list>
 </div>

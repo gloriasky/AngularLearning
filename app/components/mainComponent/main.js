@@ -12,6 +12,8 @@ angular.module('myApp').component('main', {
          * Текущий массив строк
          * @type {Array}
          */
+        $ctrl.color;
+        $ctrl.text;
         $ctrl.strings = myService.strings;
         $ctrl.colors = [
             {

@@ -9,7 +9,8 @@ angular.module('myApp').component('list', {
         onDelete: "&",
         onReset: "&",
         strings: "<",
-        colors: "<"
+        color: "=",
+        text: "="
     },
     /**
      * Контроллер

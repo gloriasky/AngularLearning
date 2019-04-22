@@ -15,17 +15,6 @@ describe("Компонент вывода массива строк: ", function
             $scope.$digest();
         })
     });
-    it('should not show elements if they exist', function () {
-        expect(element.html()).toContain("noEl");
-        expect(element.html()).not.toContain("table");
-    });
-
-    it('should show elements if they exist', function () {
-        $scope.$ctrl = {strings: "2"};
-        $scope.$digest();
-
-        expect(element.html()).toContain("tr");
-    });
     it('должен вызвать onDelete() метод главного компонента', function () {
         let spy = jasmine.createSpy("onDelete");
         $scope.$ctrl = {strings: "2", onDelete: spy};
