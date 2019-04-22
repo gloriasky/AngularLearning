@@ -8,7 +8,7 @@ describe("Тестирование фильтра поиска", function () {
 
             $scope = _$rootScope_.$new();
 
-            element = _$compile_(' <string-filter color="color"></string-filter>')($scope);
+            element = _$compile_('<string-filter color="color"></string-filter>')($scope);
             $scope.$digest();
         });
     });
