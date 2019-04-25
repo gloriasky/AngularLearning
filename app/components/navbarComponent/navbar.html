@@ -1,4 +1,5 @@
-<setting-component display="$ctrl.settingDisplay" languages="$ctrl.languages" name="$ctrl.welcome"
+<setting-component display="$ctrl.settingDisplay" languages="$ctrl.languages" ng-if="$ctrl.settingDisplay"
+                   welcome="$ctrl.welcome"
                    on-language-change="$ctrl.onLanguageChange(lang)"></setting-component>
 <ul>
     <li>
@@ -6,5 +7,7 @@
     </li>
 </ul>
 <div class="center">
-    <div class="hello" ng-if="$ctrl.welcome"><span translate="hello"></span> {{$ctrl.welcome}}!</div>
+    <div class="hello" ng-if="$ctrl.welcome">
+        <div class="welcome">{{"hello" | translate }}, {{$ctrl.welcome}}!</div>
+    </div>
 </div>

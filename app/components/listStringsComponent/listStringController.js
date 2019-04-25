@@ -9,7 +9,7 @@ angular.module('myApp').component('list', {
         onDelete: "&",
         onReset: "&",
         strings: "<",
-        color: "=",
+        color: "<",
         text: "="
     },
     /**
@@ -30,6 +30,7 @@ angular.module('myApp').component('list', {
          * @param index
          */
         $ctrl.resetTimer = index => $ctrl.onReset({index});
+
     }],
     template: require("./listString.html")
 });

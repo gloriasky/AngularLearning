@@ -1,5 +1,5 @@
 describe("Тестирование фильтра поиска", function () {
-    var element, $scope;
+    var element, $scope, ctrl;
 
     beforeEach(() => {
         module('myApp');
@@ -8,8 +8,9 @@ describe("Тестирование фильтра поиска", function () {
 
             $scope = _$rootScope_.$new();
 
-            element = _$compile_('<string-filter color="color"></string-filter>')($scope);
+            element = _$compile_('<string-filter color="color" colors="colors" text="text"></string-filter>')($scope);
             $scope.$digest();
+            ctrl = element.controller("stringFilter");
         });
     });
 
@@ -18,4 +19,7 @@ describe("Тестирование фильтра поиска", function () {
 
         expect($scope.color).toEqual("green");
     });
+    it("fregrgerg", function () {
+        expect(ctrl.colors).toEqual($scope.colors);
+    })
 });

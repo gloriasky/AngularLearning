@@ -32,7 +32,7 @@ angular.module('myApp').component('main', {
                 label: "red",
                 text: "red"
             }];
-        this.welcome = "Anomym";
+        this.welcome = "";
 
         /**
          * Функция для удаления элемента массива по индексу
@@ -54,6 +54,7 @@ angular.module('myApp').component('main', {
         $ctrl.onAdd = myString => {
             myService.addString(myString);
             $ctrl.startInterval();
+            console.log($ctrl.strings);
         };
         /**
          * Запускает интервал для проверки на изменение цвета

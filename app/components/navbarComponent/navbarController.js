@@ -22,12 +22,11 @@ angular.module('myApp').component('navbar', {
             );
 
         };
-        this.settingDisplay = "none";
+        this.settingDisplay = false;
         this.welcome = "";
 
         this.display = () => {
-            this.settingDisplay = "block";
-
+            this.settingDisplay = true;
         };
     }]
 });

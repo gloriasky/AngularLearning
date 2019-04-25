@@ -1,5 +1,5 @@
 describe("Компонент вывода массива строк: ", function () {
-    let $compile, $rootScope, $scope;
+    let $scope;
     let element;
 
     beforeEach(() => {
@@ -7,11 +7,8 @@ describe("Компонент вывода массива строк: ", function
         inject(function (_$compile_, _$rootScope_, _$httpBackend_) {
             _$httpBackend_.whenGET("./configs/res/ru.json").respond(null);
 
-            $rootScope = _$rootScope_;
-            $compile = _$compile_;
-
-            $scope = $rootScope.$new();
-            element = $compile('<list on-delete="onDelete(index)" on-reset="onReset(index)" strings="strings"></list>')($scope);
+            $scope = _$rootScope_.$new();
+            element = _$compile_('<list on-delete="onDelete(index)" on-reset="onReset(index)" strings="strings"></list>')($scope);
             $scope.$digest();
         })
     });

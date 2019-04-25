@@ -32,4 +32,31 @@ describe('Компонент, отвечающий за языки:', function (
                 name: "de"
             }]);
     });
+
+    it("должен проверить начальные настройки", function () {
+        expect(ctrl.settingDisplay).toBeFalsy();
+        expect(ctrl.welcome).toBe("")
+    });
+
+    it("после вызова метода settingDisplay должен стать true", function () {
+        ctrl.display();
+
+        expect(ctrl.settingDisplay).toBeTruthy();
+    });
+    it('должен вызвать display метод', function () {
+        ctrl.display = jasmine.createSpy("display");
+        let button = element.find("button", "setting");
+        button.triggerHandler('click');
+
+        expect(ctrl.display).toHaveBeenCalled();
+    });
+    it("не должен изначально отображать приветствие", function () {
+        expect(element.html()).not.toContain("<div class=\"welcome\">{{\"hello\" | translate }}, {{$ctrl.welcome}}!</div>");
+    });
+    it("должен отобразить приветствие, если установлено имя", function () {
+        ctrl.welcome = "Hello world";
+        $scope.$digest();
+
+        expect(element.html()).toContain("hello,Hello world!");
+    });
 });

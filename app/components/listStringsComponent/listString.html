@@ -1,6 +1,6 @@
 <div class="center" ng-if="!$ctrl.strings.length">{{ 'noEl' | translate}}</div>
 <table ng-if="$ctrl.strings.length" class="center">
-    <tr ng-repeat="str in $ctrl.strings | filter: {color : $ctrl.color}| filter: {text : $ctrl.text} track by $index">
+    <tr ng-repeat="str in $ctrl.strings | filter: {color: $ctrl.color} | filter: {strlabel: $ctrl.text} track by $index">
         <td>
             <div ng-class="str.color" title="{{ str.color | translate }}"></div>
         </td>
