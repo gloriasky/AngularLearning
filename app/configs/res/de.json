@@ -13,5 +13,7 @@
   "chooselang": "Wählen Sie eine Sprache",
   "entername": "Geben Sie Ihren Namen ein",
   "hello": "Guten tag",
-  "none": "Nein"
+  "none": "Nein",
+  "submit": "Bestätigen",
+  "cancel": "Zurücksetzen"
 }

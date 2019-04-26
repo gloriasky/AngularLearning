@@ -77,7 +77,7 @@ input {
     margin-left: auto;
     margin-right: auto;
     width: 400px;
-    height: 200px;
+    height: 175px;
     background-color: white;
     border: 3px solid;
 }
@@ -133,19 +133,25 @@ input {
 }
 
 .submit {
-    margin-top: 13%;
+    margin-top: 4%;
     margin-left: 5%;
     position: center;
-    margin-right: 15%;
+    font-size: 18px;
+    margin-right: 30%;
 }
 
 .cancel {
-    margin-top: 13%;
+    margin-top: 4%;
     margin-left: 5%;
+    font-size: 18px;
     position: center;
-    margin-right: 15%;
+
 }
 
+.langSelect {
+    margin-top: 5px;
+}
 body {
-
+    padding: 0;
+    margin: 0;
 }

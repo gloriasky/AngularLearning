@@ -4,15 +4,15 @@
         <label class="labelname">{{'entername' | translate}}:</label>
         <input class="inputname" ng-model="$ctrl.input" type="text">
         <div class="langSelect">
-            <label class="labelname" for="lang">{{'chooselang' | translate}}
+            <label class="labelname" for="lang">{{'chooselang' | translate}}:
                 <select class="lang" id="lang" ng-model="$ctrl.currentLanguage"
                         ng-options="lang.title for lang in $ctrl.languages track by lang.name">
                 </select>
             </label>
         </div>
         <div>
-            <button class="submit" ng-click="$ctrl.submit()">Подтвердить</button>
-            <button class="cancel" ng-click="$ctrl.reset()">Отменить</button>
+            <button class="submit" ng-click="$ctrl.submit()">{{'submit' | translate}}</button>
+            <button class="cancel" ng-click="$ctrl.reset()">{{'cancel' | translate}}</button>
         </div>
     </div>
 </span>

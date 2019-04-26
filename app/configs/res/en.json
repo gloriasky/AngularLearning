@@ -13,5 +13,7 @@
   "chooselang": "Choose language",
   "entername": "Enter your name",
   "hello": "Hello",
-  "none": "None"
+  "none": "None",
+  "submit": "Submit",
+  "cancel": "Cancel"
 }
