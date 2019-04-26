@@ -13,21 +13,21 @@ describe("Компонент вывода массива строк: ", function
         })
     });
     it('должен вызвать onDelete() метод главного компонента', function () {
-        let spy = jasmine.createSpy("onDelete");
-        $scope.$ctrl = {strings: "2", onDelete: spy};
+        $scope.onDelete = jasmine.createSpy("onDelete");
+        $scope.strings = [{str: "str", color: "green", time: new Date()}];
         $scope.$digest();
         let button = element.find("div", ".delete");
         button.triggerHandler("click");
 
-        expect(spy).toHaveBeenCalledWith(0);
+        expect($scope.onDelete).toHaveBeenCalledWith(0);
     });
     it('должен вызвать onReset() метод главного компонента', function () {
-        let spy = jasmine.createSpy("onReset");
-        $scope.$ctrl = {strings: "2", onReset: spy};
+        $scope.onReset = jasmine.createSpy("onReset()");
+        $scope.strings = [{str: "str", color: "green", time: new Date()}];
         $scope.$digest();
         let button = element.find("div", ".reset");
         button.triggerHandler("click");
 
-        expect(spy).toHaveBeenCalledWith(0);
+        expect($scope.onReset).toHaveBeenCalledWith(0);
     });
 });

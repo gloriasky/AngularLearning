@@ -57,6 +57,6 @@ describe('Компонент, отвечающий за языки:', function (
         ctrl.welcome = "Hello world";
         $scope.$digest();
 
-        expect(element.html()).toContain("hello,Hello world!");
+        expect(element.html()).toContain("hello, Hello world!");
     });
 });

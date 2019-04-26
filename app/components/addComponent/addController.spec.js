@@ -25,18 +25,32 @@ describe("Компонент, отвечающий за добавление с�
 
         expect($scope.onAdd).toHaveBeenCalledWith("test");
     });
-    it('должен вернуть false если строка не определена', function () {
+    it('кнопка добавления должна быть неактивна, если строка пустая', function () {
+        element.find("input").controller("ngModel").$setViewValue('');
+        let button = element.find("button", "add");
+        let isValid = button.attr("ng-disabled");
 
-        expect(ctrl.checkIfValid()).toBe(false);
+        expect(button.attr('disabled')).toBeTruthy();
     });
-    it('должен вернуть false если строка пустая', function () {
-        ctrl.userString = "";
+    it('кнопка добавления должна быть неактивна, если в строке только 1 символ, function () {
+    element.find("input").controller("ngModel").$setViewValue('1');
+    $scope.$digest();
+    let button = element.find("button", "add");
 
-        expect(ctrl.checkIfValid()).toBe(false);
+    expect(button.attr('disabled')).toBeTruthy();
     });
-    it('должен вернуть true если строка не пустая', function () {
-        ctrl.userString = "1";
+it('кнопка добавления должна быть неактивна, если в строке только 2 символа', function () {
+    element.find("input").controller("ngModel").$setViewValue('12');
+    $scope.$digest();
+    let button = element.find("button", "add");
 
-        expect(ctrl.checkIfValid()).toBe(true);
+    expect(button.attr('disabled')).toBeTruthy();
+    });
+it('кнопка добавления должна быть неактивна, если в строке 3 и больше символов', function () {
+    element.find("input").controller("ngModel").$setViewValue('1234');
+    $scope.$digest();
+    let button = element.find("button", "add");
+
+    expect(button.attr('disabled')).toBeFalsy();
     });
 });

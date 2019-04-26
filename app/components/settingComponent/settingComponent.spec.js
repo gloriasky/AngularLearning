@@ -21,7 +21,7 @@ describe("Тестирование диалогового окна: ", function 
 
         expect($scope.onLanguageChange).toHaveBeenCalledWith({title: "Engilsh", name: "en"});
     });
-    it("должен вызвать метод при нажатии кнопки", function () {
+    it("должен вызвать метод changeLanguage() при нажатии кнопки", function () {
         ctrl.changeLanguage = jasmine.createSpy("changeLanguage");
         element.find("select").controller("ngModel").$setViewValue({title: 'Русский', name: 'ru'});
         let button = element.find("button", "submit");
@@ -43,10 +43,13 @@ describe("Тестирование диалогового окна: ", function 
     });
     it("должен обрабатывать нажатие кнопки submit", function () {
         let submit = element.find("button", "submit");
+        element.find("input").controller("ngModel").$setViewValue("testing");
         ctrl.submit = jasmine.createSpy("submit()");
         ctrl.hide = jasmine.createSpy("hide()");
         submit.triggerHandler("click");
 
+
+        expect(ctrl.input).toBe("testing");
         expect(ctrl.submit).toHaveBeenCalled();
         expect(ctrl.hide).toHaveBeenCalled();
     });
@@ -60,14 +63,14 @@ describe("Тестирование диалогового окна: ", function 
         expect(ctrl.reset).toHaveBeenCalled();
         expect(ctrl.hide).toHaveBeenCalled();
     });
-    it("fgatgerg", function () {
-        element.find("input", "inputname").controller("ngModel").$setViewValue("testing");
-        element.find("button", "submit").triggerHandler("click");
+    it("должен передавать данные пользователя в родительский компонент", function () {
+        element.find("input").controller("ngModel").$setViewValue("testing");
+        ctrl.submit();
 
         $scope.$digest();
 
         expect($scope.welcome).toBe("testing");
 
-    })
+    });
 
 });

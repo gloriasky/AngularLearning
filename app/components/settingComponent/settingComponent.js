@@ -25,9 +25,7 @@ angular.module("myApp").component("settingComponent", {
             $ctrl.hide();
         };
         $ctrl.submit = () => {
-            if ($ctrl.input && !_.isUndefined($ctrl.input)) {
-                $ctrl.welcome = $ctrl.input;
-            }
+            $ctrl.welcome = $ctrl.input;
             $ctrl.changeLanguage();
             $ctrl.hide();
         };
