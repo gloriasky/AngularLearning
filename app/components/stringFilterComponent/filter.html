@@ -1,6 +1,6 @@
 <div class="center">
     <input ng-model="$ctrl.string" type="text">
     <select ng-model="$ctrl.currentColor"
-            ng-options="color.label | translate for color in $ctrl.colors"></select>
+            ng-options="color.label | translate for color in $ctrl.colors track by color.label"></select>
     <button ng-click="$ctrl.filterArray()">Submit</button>
 </div>

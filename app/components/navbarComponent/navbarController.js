@@ -14,13 +14,16 @@ angular.module('myApp').component('navbar', {
         /**
          * Функция для смены языка
          * @param languageObject
+         * @param welcome
          */
-        this.onLanguageChange = (languageObject) => {
+        this.currentLanguage = {title: "Русский", name: "ru"};
+        this.onChange = (languageObject, welcome) => {
             $translate.use(languageObject.name).then(function () {
                     myService.changeLanguage();
                 }
             );
-
+            this.currentLanguage = languageObject;
+            this.welcome = welcome;
         };
         this.settingDisplay = false;
         this.welcome = "";
@@ -28,5 +31,8 @@ angular.module('myApp').component('navbar', {
         this.display = () => {
             this.settingDisplay = true;
         };
+        this.close = () => {
+            this.settingDisplay = false;
+        }
     }]
 });

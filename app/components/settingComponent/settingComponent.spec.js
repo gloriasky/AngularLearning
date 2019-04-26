@@ -14,12 +14,12 @@ describe("Тестирование диалогового окна: ", function 
 
 
     it('должен передать выбранный язык в родительский компонент', function () {
-        $scope.onLanguageChange = jasmine.createSpy("onLanguageChange");
+        $scope.onLanguageChange = jasmine.createSpy("onChange");
         element.find("select").controller("ngModel").$setViewValue({title: "Engilsh", name: "en"});
         let button = element.find("button", "submit");
         button.triggerHandler("click");
 
-        expect($scope.onLanguageChange).toHaveBeenCalledWith({title: "Engilsh", name: "en"});
+        expect($scope.onChange).toHaveBeenCalledWith({title: "Engilsh", name: "en"});
     });
     it("должен вызвать метод changeLanguage() при нажатии кнопки", function () {
         ctrl.changeLanguage = jasmine.createSpy("changeLanguage");

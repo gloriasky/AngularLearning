@@ -1,19 +1,15 @@
 describe("Компонент, отвечающий за добавление строк: ", function () {
-    let $compile, $rootScope, $scope;
-    let ctrl, element;
+    let $scope;
+    let element;
 
     beforeEach(() => {
         module('myApp');
         inject(function (_$compile_, _$rootScope_, _$httpBackend_) {
             _$httpBackend_.whenGET("./configs/res/ru.json").respond(null);
 
-            $rootScope = _$rootScope_;
-            $compile = _$compile_;
-
-            $scope = $rootScope.$new();
-            element = $compile('<adder on-add="onAdd(myString)"></adder>')($scope);
+            $scope = _$rootScope_.$new();
+            element = _$compile_('<adder on-add="onAdd(myString)"></adder>')($scope);
             $scope.$digest();
-            ctrl = element.controller('adder');
         })
     });
 

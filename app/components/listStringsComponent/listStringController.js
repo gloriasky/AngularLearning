@@ -9,8 +9,7 @@ angular.module('myApp').component('list', {
         onDelete: "&",
         onReset: "&",
         strings: "<",
-        color: "<",
-        text: "="
+        filterObj: "="
     },
     /**
      * Контроллер

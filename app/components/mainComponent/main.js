@@ -12,8 +12,7 @@ angular.module('myApp').component('main', {
          * Текущий массив строк
          * @type {Array}
          */
-        $ctrl.color;
-        $ctrl.text;
+        $ctrl.filterObject = {};
         $ctrl.strings = myService.strings;
         $ctrl.colors = [
             {
@@ -33,7 +32,10 @@ angular.module('myApp').component('main', {
                 text: "red"
             }];
         this.welcome = "";
-
+        $ctrl.getFilterObj = function (text, color) {
+            $ctrl.filterObject.text = text;
+            $ctrl.filterObject.color = color;
+        };
         /**
          * Функция для удаления элемента массива по индексу
          * @param index
@@ -54,7 +56,6 @@ angular.module('myApp').component('main', {
         $ctrl.onAdd = myString => {
             myService.addString(myString);
             $ctrl.startInterval();
-            console.log($ctrl.strings);
         };
         /**
          * Запускает интервал для проверки на изменение цвета

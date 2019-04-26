@@ -3,22 +3,18 @@ angular.module("myApp").component("stringFilter", {
     controller: [function () {
         let $ctrl = this;
         $ctrl.currentColor = {
-            label: "green",
-            text: "green"
+            label: "none",
+            text: ""
         };
         $ctrl.filterArray = () => {
-            this.color = this.currentColor.text;
-            if ($ctrl.string) {
-                $ctrl.text = $ctrl.string;
-            } else {
-                $ctrl.text = undefined;
+            if (!$ctrl.string) {
+                $ctrl.string = undefined;
             }
-
+            $ctrl.onFilter({text: $ctrl.string, color: $ctrl.currentColor.text});
         }
     }],
     bindings: {
-        text: "=",
-        color: '=',
+        onFilter: "&",
         colors: "<"
     },
 });

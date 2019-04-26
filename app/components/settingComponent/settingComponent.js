@@ -3,38 +3,37 @@
  */
 angular.module("myApp").component("settingComponent", {
     bindings: {
-        display: '=',
-        welcome: '=',
-        onLanguageChange: "&",
-        languages: "<"
+        onChange: "&",
+        onClose: "&",
+        welcome: '<',
+        languages: "<",
+        currentLanguage: "<"
     },
     template: require('./settingComponent.html'),
     controller: [function () {
         let $ctrl = this;
-        $ctrl.input = "";
-        $ctrl.currentLanguage = {title: "Русский", name: "ru"};
         /**
          * Функция закрытия диалога.
          */
         $ctrl.hide = () => {
-            $ctrl.input = "";
-            $ctrl.display = false;
+            $ctrl.onClose();
         };
         $ctrl.reset = () => {
             $ctrl.welcome = "";
+            $ctrl.changeInfo();
             $ctrl.hide();
         };
         $ctrl.submit = () => {
-            $ctrl.welcome = $ctrl.input;
-            $ctrl.changeLanguage();
+            $ctrl.changeInfo();
             $ctrl.hide();
         };
         /**
          * Функция для смены языка
          *
          */
-        $ctrl.changeLanguage = () => {
-            $ctrl.onLanguageChange({lang: $ctrl.currentLanguage});
+        $ctrl.changeInfo = () => {
+            $ctrl.onChange({lang: this.currentLanguage, welcome: this.welcome});
         }
+
     }]
 });
