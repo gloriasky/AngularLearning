@@ -19,7 +19,4 @@ describe("Тестирование фильтра поиска", function () {
 
         expect($scope.color).toEqual("green");
     });
-    it("проверка связывания", function () {
-        expect(ctrl.colors).toEqual($scope.colors);
-    })
 });

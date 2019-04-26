@@ -51,7 +51,7 @@ describe('Компонент, отвечающий за языки:', function (
         expect(ctrl.display).toHaveBeenCalled();
     });
     it("не должен изначально отображать приветствие", function () {
-        expect(element.html()).not.toContain("<div class=\"welcome\">{{\"hello\" | translate }}, {{$ctrl.welcome}}!</div>");
+        expect(element.html()).not.toContain("hello");
     });
     it("должен отобразить приветствие, если установлено имя", function () {
         ctrl.welcome = "Hello world";

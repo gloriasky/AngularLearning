@@ -28,11 +28,10 @@ describe("Компонент, отвечающий за добавление с�
     it('кнопка добавления должна быть неактивна, если строка пустая', function () {
         element.find("input").controller("ngModel").$setViewValue('');
         let button = element.find("button", "add");
-        let isValid = button.attr("ng-disabled");
 
         expect(button.attr('disabled')).toBeTruthy();
     });
-    it('кнопка добавления должна быть неактивна, если в строке только 1 символ, function () {
+    it('кнопка добавления должна быть неактивна, если в строке только 1 символ, function ()', function () {
     element.find("input").controller("ngModel").$setViewValue('1');
     $scope.$digest();
     let button = element.find("button", "add");
@@ -52,5 +51,5 @@ it('кнопка добавления должна быть неактивна, 
     let button = element.find("button", "add");
 
     expect(button.attr('disabled')).toBeFalsy();
-    });
+})
 });
