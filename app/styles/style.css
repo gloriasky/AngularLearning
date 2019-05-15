@@ -135,6 +135,7 @@ input {
 .submit {
     margin-top: 4%;
     margin-left: 5%;
+    float: left;
     position: center;
     font-size: 18px;
     margin-right: 30%;
@@ -142,7 +143,8 @@ input {
 
 .cancel {
     margin-top: 4%;
-    margin-left: 5%;
+    margin-right: 5%;
+    float: right;
     font-size: 18px;
     position: center;
 
@@ -154,4 +156,5 @@ input {
 body {
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }

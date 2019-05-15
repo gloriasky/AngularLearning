@@ -59,4 +59,15 @@ describe('Компонент, отвечающий за языки:', function (
 
         expect(element.html()).toContain("hello, Hello world!");
     });
+    it("close", function () {
+        ctrl.onClose();
+
+        expect(ctrl.settingDisplay).toBe(false)
+    });
+    it("onChange", function () {
+        ctrl.onChange({title: "Deutsch", name: "de"}, "test");
+
+        expect(ctrl.currentLanguage).toEqual({title: "Deutsch", name: "de"});
+        expect(ctrl.welcome).toBe("test");
+    })
 });

@@ -10,10 +10,12 @@
   "onReset": "Zurücksetzen",
   "notification": "Sie müssen mindestens 3 Zeichen eingeben!",
   "noEl": "keine Elemente",
-  "chooselang": "Wählen Sie eine Sprache",
-  "entername": "Geben Sie Ihren Namen ein",
-  "hello": "Guten tag",
-  "none": "Nein",
+  "chooselang": "Wählen Sie eine Sprache: ",
+  "entername": "Geben Sie Ihren Namen ein: ",
+  "hello": "Guten tag, ",
+  "none": "jeder",
   "submit": "Bestätigen",
-  "cancel": "Zurücksetzen"
+  "cancel": "Abbrechen",
+  "submitFilter": "Zu finden",
+  "resetFilter": "Filter zurücksetzen"
 }

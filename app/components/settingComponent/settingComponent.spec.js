@@ -6,71 +6,93 @@ describe("Тестирование диалогового окна: ", function 
         inject(function (_$rootScope_, _$compile_, _$httpBackend_) {
             _$httpBackend_.whenGET("").respond({});
             $scope = _$rootScope_.$new();
-            element = _$compile_(`<setting-component display="settingDisplay" languages="languages" welcome="welcome" on-language-change="onLanguageChange(lang)"></setting-component>`)($scope);
+            element = _$compile_(`<setting-component current-language="currentLanguage" languages="languages"
+                   welcome="welcome" on-change="onChange(lang,welcome)" on-close="onClose()"></setting-component>`)($scope);
             $scope.$digest();
-            ctrl = element.controller("settingComponent");
+            ctrl = element.controller('settingComponent');
         })
     });
+    describe("hide", function () {
+        it("hide", function () {
+            ctrl.hide = jasmine.createSpy("hide()");
+            let close = element.find("div", "close");
+            close.triggerHandler("click");
 
+            expect(ctrl.hide).toHaveBeenCalled();
+        });
+        it("close", function () {
+            $scope.onClose = jasmine.createSpy("onClose()");
+            ctrl.hide();
 
-    it('должен передать выбранный язык в родительский компонент', function () {
-        $scope.onLanguageChange = jasmine.createSpy("onChange");
-        element.find("select").controller("ngModel").$setViewValue({title: "Engilsh", name: "en"});
-        let button = element.find("button", "submit");
-        button.triggerHandler("click");
-
-        expect($scope.onChange).toHaveBeenCalledWith({title: "Engilsh", name: "en"});
+            expect($scope.onClose).toHaveBeenCalled();
+        });
     });
-    it("должен вызвать метод changeLanguage() при нажатии кнопки", function () {
-        ctrl.changeLanguage = jasmine.createSpy("changeLanguage");
-        element.find("select").controller("ngModel").$setViewValue({title: 'Русский', name: 'ru'});
-        let button = element.find("button", "submit");
-        button.triggerHandler("click");
+    describe("reset", function () {
+        it("reset1", function () {
+            ctrl.reset = jasmine.createSpy("reset()");
+            let reset = element.find("button", "cancel");
+            reset.triggerHandler("click");
 
-        expect(ctrl.changeLanguage).toHaveBeenCalled();
+            expect(ctrl.reset).toHaveBeenCalled();
+        });
+        it("name - reset", function () {
+            element.find("input").controller("ngModel").$setViewValue('test');
+
+            expect(ctrl.welcome).toBe("test");
+
+            let reset = element.find("button", "cancel");
+            reset.triggerHandler("click");
+
+            expect(ctrl.welcome).toBe("");
+        });
+        it("changeInfo - reset", function () {
+            ctrl.changeInfo = jasmine.createSpy("changeInfo");
+            let reset = element.find("button", "cancel");
+            reset.triggerHandler("click");
+
+            expect(ctrl.changeInfo).toHaveBeenCalled();
+        })
+        it("close - resset", function () {
+            ctrl.hide = jasmine.createSpy("hide");
+            let reset = element.find("button", "cancel");
+            reset.triggerHandler("click");
+
+            expect(ctrl.hide).toHaveBeenCalled();
+        })
     });
-    it("начальные настройки", function () {
-        expect(ctrl.currentLanguage).toEqual({title: "Русский", name: "ru"});
+    describe("submit", function () {
+        it("submit", function () {
+            ctrl.submit = jasmine.createSpy("submit1");
+            let submit = element.find("button", "cancel");
+            submit.triggerHandler("click");
+
+            expect(ctrl.submit).toHaveBeenCalled();
+        });
+        it("changeInfo", function () {
+            ctrl.changeInfo = jasmine.createSpy("changeInfo");
+            let submit = element.find("button", "cancel");
+            submit.triggerHandler("click");
+
+            expect(ctrl.changeInfo).toHaveBeenCalled();
+        });
+        it("close - submit", function () {
+            ctrl.hide = jasmine.createSpy("hide");
+            let submit = element.find("button", "cancel");
+            submit.triggerHandler("click");
+
+            expect(ctrl.hide).toHaveBeenCalled();
+        })
     });
-    it("должен закрыть окно при нажатии кнопки", function () {
-        let close = element.find("div", "close");
-        ctrl.hide = jasmine.createSpy("hide()");
-        close.triggerHandler("click");
+    it("changeInfo", function () {
+        element.find("input").controller("ngModel").$setViewValue('test');
+        element.find("select").controller("ngModel").$setViewValue({
+            title: "Deutsch",
+            name: "de"
+        });
+        $scope.onChange = jasmine.createSpy("onChange()");
+        ctrl.changeInfo();
 
-        expect(ctrl.hide).toHaveBeenCalled();
-        expect(ctrl.input).toBe("");
-        expect($scope.settingDisplay).toBeFalsy();
-    });
-    it("должен обрабатывать нажатие кнопки submit", function () {
-        let submit = element.find("button", "submit");
-        element.find("input").controller("ngModel").$setViewValue("testing");
-        ctrl.submit = jasmine.createSpy("submit()");
-        ctrl.hide = jasmine.createSpy("hide()");
-        submit.triggerHandler("click");
-
-
-        expect(ctrl.input).toBe("testing");
-        expect(ctrl.submit).toHaveBeenCalled();
-        expect(ctrl.hide).toHaveBeenCalled();
-    });
-
-    it("должен обрабатывать нажатие кнопки cancel", function () {
-        let cancel = element.find("button", "cancel");
-        ctrl.reset = jasmine.createSpy("reset()");
-        ctrl.hide = jasmine.createSpy("hide()");
-        cancel.triggerHandler("click");
-
-        expect(ctrl.reset).toHaveBeenCalled();
-        expect(ctrl.hide).toHaveBeenCalled();
-    });
-    it("должен передавать данные пользователя в родительский компонент", function () {
-        element.find("input").controller("ngModel").$setViewValue("testing");
-        ctrl.submit();
-
-        $scope.$digest();
-
-        expect($scope.welcome).toBe("testing");
-
-    });
+        expect($scope.onChange).toHaveBeenCalledWith({title: "Deutsch", name: "de"}, "test");
+    })
 
 });

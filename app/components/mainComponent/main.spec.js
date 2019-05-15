@@ -19,7 +19,11 @@ describe("Главный компонент: ", function () {
             ctrl = element.controller('main');
         })
     });
+    it('should w,fewfefwe', function () {
+        ctrl.getFilterObj("text", "green");
 
+        expect(ctrl.filterObject).toEqual({color: "green", text: "text"})
+    });
     it('должен вызвать addString(text) метод сервиса', function () {
         spyOn(myService, 'addString');
         let spy = jasmine.createSpy();

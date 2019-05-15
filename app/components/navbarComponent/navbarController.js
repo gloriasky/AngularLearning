@@ -31,7 +31,7 @@ angular.module('myApp').component('navbar', {
         this.display = () => {
             this.settingDisplay = true;
         };
-        this.close = () => {
+        this.onClose = () => {
             this.settingDisplay = false;
         }
     }]

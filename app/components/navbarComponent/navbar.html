@@ -1,7 +1,7 @@
 <setting-component current-language="$ctrl.currentLanguage" languages="$ctrl.languages"
                    welcome="$ctrl.welcome"
                    ng-if="$ctrl.settingDisplay" on-change="$ctrl.onChange(lang,welcome)"
-                   on-close="$ctrl.close()"></setting-component>
+                   on-close="$ctrl.onClose()"></setting-component>
 <ul>
     <li>
         <button class="setting" ng-click="$ctrl.display()"></button>
@@ -9,6 +9,6 @@
 </ul>
 <div class="center">
     <div class="hello" ng-if="$ctrl.welcome">
-        <div class="welcome">{{"hello" | translate }}, {{$ctrl.welcome}}!</div>
+        <div class="welcome">{{"hello" | translate }}{{$ctrl.welcome}}!</div>
     </div>
 </div>

@@ -11,6 +11,9 @@ angular.module("myApp").component("stringFilter", {
                 $ctrl.string = undefined;
             }
             $ctrl.onFilter({text: $ctrl.string, color: $ctrl.currentColor.text});
+        };
+        $ctrl.resetFilter = () => {
+            $ctrl.onFilter({text: "", color: ""});
         }
     }],
     bindings: {

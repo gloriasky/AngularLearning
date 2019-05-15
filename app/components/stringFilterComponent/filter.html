@@ -2,5 +2,6 @@
     <input ng-model="$ctrl.string" type="text">
     <select ng-model="$ctrl.currentColor"
             ng-options="color.label | translate for color in $ctrl.colors track by color.label"></select>
-    <button ng-click="$ctrl.filterArray()">Submit</button>
+    <button class="submitFilter" ng-click="$ctrl.filterArray()">{{"submitFilter" | translate }}</button>
+    <button class="resetFilter" ng-click="$ctrl.resetFilter()">{{"resetFilter" | translate}}</button>
 </div>

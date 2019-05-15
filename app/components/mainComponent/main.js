@@ -16,7 +16,7 @@ angular.module('myApp').component('main', {
         $ctrl.strings = myService.strings;
         $ctrl.colors = [
             {
-                label: "none",
+                label: "any",
                 text: ""
             },
             {
@@ -32,7 +32,7 @@ angular.module('myApp').component('main', {
                 text: "red"
             }];
         this.welcome = "";
-        $ctrl.getFilterObj = function (text, color) {
+        $ctrl.getFilterObj = (text, color) => {
             $ctrl.filterObject.text = text;
             $ctrl.filterObject.color = color;
         };

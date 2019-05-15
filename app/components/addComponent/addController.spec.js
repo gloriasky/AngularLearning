@@ -41,7 +41,7 @@ it('кнопка добавления должна быть неактивна, 
 
     expect(button.attr('disabled')).toBeTruthy();
     });
-it('кнопка добавления должна быть неактивна, если в строке 3 и больше символов', function () {
+    it('кнопка добавления должна быть активна, если в строке 3 и больше символов', function () {
     element.find("input").controller("ngModel").$setViewValue('1234');
     $scope.$digest();
     let button = element.find("button", "add");

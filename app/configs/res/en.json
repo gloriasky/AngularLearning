@@ -10,10 +10,12 @@
   "onReset": "Reset",
   "notification": "You must enter at least 3 characters",
   "noEl": "no elements",
-  "chooselang": "Choose language",
-  "entername": "Enter your name",
-  "hello": "Hello",
-  "none": "None",
+  "chooselang": "Choose language: ",
+  "entername": "Enter your name: ",
+  "hello": "Hello, ",
+  "none": "any",
   "submit": "Submit",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "submitFilter": "Search",
+  "resetFilter": "Reset filter"
 }
